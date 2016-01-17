@@ -1,0 +1,129 @@
+module Unidom
+  module Common
+    module Concerns
+
+      module ModelExtension
+
+        extend ActiveSupport::Concern
+
+        self.included do |includer|
+
+          validates :state, presence: true, length: { is: columns_hash['state'].limit }
+
+          scope :included_by, ->(inclusion) { where     id: inclusion }
+          scope :excluded_by, ->(exclusion) { where.not id: exclusion }
+
+          scope :transited_to, ->(states) { where state: states }
+
+          scope :valid_at,       ->(now = Time.now) { where "? BETWEEN #{includer.table_name}.opened_at AND #{includer.table_name}.closed_at", now }
+          scope :valid_duration, ->(range)          { where "(#{includer.table_name}.opened_at BETWEEN ? AND ?) OR (#{includer.table_name}.closed_at <= ? AND #{includer.table_name}.closed_at >= ?)", range.min, range.max, range.max, range.min }
+
+          scope :alive, ->(living  = true) { where defunct: !living }
+          scope :dead,  ->(defunct = true) { where defunct: defunct }
+
+          if columns_hash['ordinal'].present?
+            validates :ordinal, presence: true, numericality: { integer_only: true, greater_than: 0 }
+            scope :ordinal_is, ->(ordinal) { where ordinal: ordinal }
+          end
+
+          if columns_hash['uuid'].present?
+            validates :uuid, presence: true, length: { is: 36 }
+            scope :uuid_is, ->(uuid) { where uuid: uuid }
+          end
+
+          if columns_hash['elemental'].present?
+            scope :primary, ->(elemental = true) { where elemental: elemental }
+          end
+
+          if columns_hash['grade'].present?
+            validates :grade, presence: true, numericality: { integer_only: true, greater_than_or_equal_to: 0 }
+            scope :grade_is,          ->(grade) { where grade: grade }
+            scope :grade_higher_than, ->(grade) { where "grade > :grade", grade: grade }
+            scope :grade_lower_than,  ->(grade) { where "grade < :grade", grade: grade }
+          end
+
+          if columns_hash['priority'].present?
+            validates :priority, presence: true, numericality: { integer_only: true, greater_than_or_equal_to: 0 }
+            scope :priority_is,          ->(priority) { where priority: priority }
+            scope :priority_higher_than, ->(priority) { where "priority > :priority", priority: priority }
+            scope :priority_lower_than,  ->(priority) { where "priority < :priority", priority: priority }
+          end
+
+          if columns_hash['slug'].present?
+            validates :slug, presence: true, length: { in: 1..columns_hash['slug'].limit }, uniqueness: true
+            scope :slug_is, ->(slug) { where slug: slug }
+            before_validation -> {
+              prefix = build_slug.to_s[0..(self.class.columns_hash['slug'].limit-37)]
+              unique = prefix
+              while includer.slug_is(unique).count>0
+                unique = "#{prefix}-#{::SecureRandom.uuid}"
+              end
+              self.slug = unique
+            }, on: :create
+            # on update: re-generate the slug if the slug was assigned to empty.
+            # to_query:  escape characters
+          end
+
+          columns_hash.each do |column_name, hash|
+
+            name = column_name.to_s
+
+            if 'code'==name or name.ends_with? '_code'
+              class_eval do
+                if columns_hash[name].null
+                  validates name.to_sym, allow_blank: true, length: { maximum: columns_hash[name].limit }
+                else
+                  validates name.to_sym, presence: true, length: { is: columns_hash[name].limit }
+                end
+                scope "#{name}d_as".to_sym,     ->(code) { where     name => code }
+                scope "not_#{name}d_as".to_sym, ->(code) { where.not name => code }
+                scope "#{name}_starting_with".to_sym, ->(prefix) { where "#{name} LIKE :prefix", prefix: "#{prefix}%" }
+                scope "#{name}_ending_with".to_sym,   ->(suffix) { where "#{name} LIKE :suffix", suffix: "%#{suffix}" }
+              end
+            end
+
+            if name.ends_with? '_at'
+              matched = /\A(.+)_at\z/.match name
+              class_eval do
+                scope :"#{matched[1]}_on",     ->(date)  { where name => date.beginning_of_day..date.end_of_day }
+                scope :"#{matched[1]}_during", ->(range) { where name => range }
+              end
+            end
+
+          end
+
+          includer.define_singleton_method :default_scope do
+            includer.all.order("#{includer.table_name}.ordinal ASC") if includer.columns_hash['ordinal'].present?
+            includer.all.order("#{includer.table_name}.created_at ASC")
+            #relation = base.all
+            #scopes.each do |s| relation = relation.send s.to_sym end
+            #relation
+          end
+
+          def soft_destroy
+            self.closed_at = Time.now
+            self.defunct = true
+            self.save
+          end
+
+          def build_slug
+            if respond_to? :name
+              name
+            elsif respond_to? :title
+              title
+            else
+              ::SecureRandom.uuid
+            end
+          end
+
+        end
+
+        module ClassMethods
+          # def method_name do end
+        end
+
+      end
+
+    end
+  end
+end
