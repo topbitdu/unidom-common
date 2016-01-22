@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.description = 'Unidom (UNIfied Domain Object Model) is a series of domain model engines. The Common domain model engine includes the common models. Unidom (统一领域对象模型)是一系列的领域模型引擎。常用领域模型引擎包括一些常用的模型。'
   spec.license     = 'MIT'
 
-  spec.files = Dir[ '{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc' ]
+  spec.files = Dir[ '{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md' ]
 
   spec.add_dependency 'rails', '~> 4.2'
   spec.add_dependency 'pg'
