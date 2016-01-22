@@ -21,6 +21,12 @@ module Unidom
 
       end
 
+      def parse_time(date_text, default = Time.now)
+        return default if date_text.blank?
+        date = Date.parse date_text
+        Time.utc date.year, date.month, date.day
+      end
+
     end
 
   end
