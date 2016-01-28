@@ -72,6 +72,7 @@ module Unidom
               class_eval do
                 if columns_hash[name].null
                   validates name.to_sym, allow_blank: true, length: { maximum: columns_hash[name].limit }
+                  scope "#{name}_length_is".to_sym, ->(length) { where "LENGTH(#{name}) = :length", length: length }
                 else
                   validates name.to_sym, presence: true, length: { is: columns_hash[name].limit }
                 end
