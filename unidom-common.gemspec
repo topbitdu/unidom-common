@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.authors     = [ 'Topbit Du' ]
   spec.email       = [ 'topbit.du@gmail.com' ]
   spec.homepage    = 'http://github.com/topbitdu/unidom-common'
-  spec.summary     = 'The Common domain model engine includes the common models.'
+  spec.summary     = 'Unidom Common Domain Model Engine 常用领域模型引擎'
   spec.description = 'Unidom (UNIfied Domain Object Model) is a series of domain model engines. The Common domain model engine includes the common models. Unidom (统一领域对象模型)是一系列的领域模型引擎。常用领域模型引擎包括一些常用的模型。'
   spec.license     = 'MIT'
 
