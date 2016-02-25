@@ -69,4 +69,4 @@ The NNN is the numeric code of [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_31
 The numeric code of China is 156.
 * unidom-certificate-china: 2001029156MMSS
 * unidom-contact-china: 2001039156MMSS
-* unidom-region-china: 2001049156MMSS
+* unidom-geo-china: 2001049156MMSS
