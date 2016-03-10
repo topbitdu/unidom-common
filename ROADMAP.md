@@ -12,3 +12,6 @@
 2. Improved the Model Extension concern
 3. Added the Unidom::Common::NULL_UUID constant
 4. Added the Unidom::Common::SELF constant
+
+## v0.4
+1. Added the ::to_id class methods in the Model Extension
