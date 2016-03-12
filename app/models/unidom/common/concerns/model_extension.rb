@@ -120,7 +120,7 @@ module Unidom
         end
 
         module ClassMethods
-          # def method_name do end
+
           def to_id(model)
             model.respond_to?(:id) ? model.id : model
           end
