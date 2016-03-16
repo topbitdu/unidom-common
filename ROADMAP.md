@@ -15,3 +15,6 @@
 
 ## v0.4
 1. Added the ::to_id class methods in the Model Extension
+
+## v0.5
+1. Supported the No-SQL columns in the Model Extension

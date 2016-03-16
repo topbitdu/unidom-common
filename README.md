@@ -42,6 +42,24 @@ team.projects.valid_during('2015-01-01'..'2015-12-31').dead
 Project.included_by([ id_1, id_2 ]).excluded_by id_3
 ```
 
+## No-SQL Columns
+```ruby
+class Project < ActiveRecord::Base
+
+  include Unidom::Common::Concerns::ModelExtension
+
+  validates :creator_comment,      allow_blank: true, length: { in: 2..200 }
+  validates :last_updater_comment, allow_blank: true, length: { in: 2..200 }
+
+  notation_column :creator_comment, :last_updater_comment
+
+end
+
+project = Project.new
+project.creator_comment = 'My first project.' # Stored in project.notation['columns']['creator_comment']
+project.valid?                                # true
+```
+
 ## ActiveRecord Migration Naming Convention
 ### Domain Models (200YMMDDHHMMSS)
 * unidom-common:         200001DDHHMMSS

@@ -125,6 +125,20 @@ module Unidom
             model.respond_to?(:id) ? model.id : model
           end
 
+          def notation_column(*names)
+            names.each do |name|
+              instance_eval do
+                define_method(name) do
+                  notation.try(:[], 'columns').try(:[], name)
+                end
+                define_method("#{name}=") do |value|
+                  notation['columns'] ||= {}
+                  notation['columns'][name] = value
+                end
+              end
+            end
+          end
+
         end
 
       end
