@@ -127,6 +127,7 @@ module Unidom
 
           def notation_column(*names)
             names.each do |name|
+              name = name.to_s
               instance_eval do
                 define_method(name) do
                   notation.try(:[], 'columns').try(:[], name)

@@ -18,3 +18,6 @@
 
 ## v0.5
 1. Supported the No-SQL columns in the Model Extension
+
+## v0.5.1
+1. Fixed the issue of No-SQL columns reader methods
