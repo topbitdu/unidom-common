@@ -40,6 +40,10 @@ end
 Project.coded_as('JIRA').valid_at(Time.now).alive(true)     # Same as Project.coded_as('JIRA').valid_at.alive
 team.projects.valid_during('2015-01-01'..'2015-12-31').dead
 Project.included_by([ id_1, id_2 ]).excluded_by id_3
+Project.created_after('2015-01-01 00:00:00')
+Project.created_not_after('2015-01-01 00:00:00')
+Project.created_before('2015-01-01 00:00:00')
+Project.created_not_before('2015-01-01 00:00:00')
 ```
 
 ## No-SQL Columns
@@ -48,16 +52,19 @@ class Project < ActiveRecord::Base
 
   include Unidom::Common::Concerns::ModelExtension
 
+  notation_column :creator_comment, :last_updater_comment
+
   validates :creator_comment,      allow_blank: true, length: { in: 2..200 }
   validates :last_updater_comment, allow_blank: true, length: { in: 2..200 }
-
-  notation_column :creator_comment, :last_updater_comment
 
 end
 
 project = Project.new
 project.creator_comment = 'My first project.' # Stored in project.notation['columns']['creator_comment']
 project.valid?                                # true
+
+Project.notation_column_where(:creator_comment, :like, 'first') # Fuzzy search the creator_comment column
+Project.notation_column_where(:creator_comment, '=', 'My first project.')
 ```
 
 ## ActiveRecord Migration Naming Convention

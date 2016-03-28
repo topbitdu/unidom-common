@@ -21,6 +21,11 @@ module Unidom
           scope :alive, ->(living  = true) { where defunct: !living }
           scope :dead,  ->(defunct = true) { where defunct: defunct }
 
+          scope :notation_column_where, ->(name, operator, value) do
+            operation = :like==operator ? { operator: 'ILIKE', value: "%#{value}%" } : { operator: operator.to_s, value: value }
+            where "#{table_name}.notation -> 'columns' ->> '#{name}' #{operation[:operator]} :value", value: operation[:value]
+          end
+
           if columns_hash['ordinal'].present?
             validates :ordinal, presence: true, numericality: { integer_only: true, greater_than: 0 }
             scope :ordinal_is, ->(ordinal) { where ordinal: ordinal }
@@ -86,8 +91,12 @@ module Unidom
             if name.ends_with? '_at'
               matched = /\A(.+)_at\z/.match name
               class_eval do
-                scope :"#{matched[1]}_on",     ->(date)  { where name => date.beginning_of_day..date.end_of_day }
-                scope :"#{matched[1]}_during", ->(range) { where name => range }
+                scope :"#{matched[1]}_on",         ->(date)  { where name => date.beginning_of_day..date.end_of_day }
+                scope :"#{matched[1]}_during",     ->(range) { where name => range }
+                scope :"#{matched[1]}_before",     ->(time)  { where "#{table_name}.#{name} <  :time", time: time }
+                scope :"#{matched[1]}_not_after",  ->(time)  { where "#{table_name}.#{name} <= :time", time: time }
+                scope :"#{matched[1]}_after",      ->(time)  { where "#{table_name}.#{name} >  :time", time: time }
+                scope :"#{matched[1]}_not_before", ->(time)  { where "#{table_name}.#{name} >= :time", time: time }
               end
             end
 
