@@ -100,6 +100,13 @@ module Unidom
               end
             end
 
+            if name.ends_with? '_state'
+              matched = /\A(.+)_state\z/.match name
+              class_eval do
+                scope :"#{matched[1]}_transited_to", ->(states) { where name => states }
+              end
+            end
+
           end
 
           includer.define_singleton_method :default_scope do

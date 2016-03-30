@@ -6,6 +6,10 @@
 Unidom (UNIfied Domain Object Model) is a series of domain model engines. The Common domain model engine includes the common models.
 Unidom (统一领域对象模型)是一系列的领域模型引擎。常用领域模型引擎包括一些常用的模型。
 
+## Recent Update
+Check out the [Road Map](ROADMAP.md) to find out what's the next.
+Check out the [Change Log](CHANGELOG.md) to find out what's new.
+
 ## Usage in Gemfile
 ```ruby
 gem 'unidom-common'
@@ -28,7 +32,8 @@ class Project < ActiveRecord::Base
 
   include Unidom::Common::Concerns::ModelExtension
 
-  validates :name, presence: true, length: { in: 2..200 }
+  validates :name,           presence: true, length: { in: 2..200 }
+  validates :audition_state, presence: true, length: { is: 1 }
 
   belongs_to :customer
   belongs_to :team
@@ -44,6 +49,7 @@ Project.created_after('2015-01-01 00:00:00')
 Project.created_not_after('2015-01-01 00:00:00')
 Project.created_before('2015-01-01 00:00:00')
 Project.created_not_before('2015-01-01 00:00:00')
+Project.audition_transited_to('A').transited_to('C')
 ```
 
 ## No-SQL Columns
