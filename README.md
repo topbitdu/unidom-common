@@ -19,6 +19,7 @@ gem 'unidom-common'
 ```shell
 rake db:migrate
 ```
+The migration versions starts with 200001.
 The migration enabled the PostgreSQL uuid-ossp extension.
 
 ## Include Concern in Models
