@@ -60,6 +60,7 @@ class Project < ActiveRecord::Base
   include Unidom::Common::Concerns::ModelExtension
 
   notation_column :creator_comment, :last_updater_comment
+  notation_boolean_column :enabled
 
   validates :creator_comment,      allow_blank: true, length: { in: 2..200 }
   validates :last_updater_comment, allow_blank: true, length: { in: 2..200 }
@@ -72,6 +73,9 @@ project.valid?                                # true
 
 Project.notation_column_where(:creator_comment, :like, 'first') # Fuzzy search the creator_comment column
 Project.notation_column_where(:creator_comment, '=', 'My first project.')
+
+project.enabled = true
+project.enabled? # true
 ```
 
 ## ActiveRecord Migration Naming Convention

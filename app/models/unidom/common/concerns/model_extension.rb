@@ -156,6 +156,21 @@ module Unidom
             end
           end
 
+          def notation_boolean_column(*names)
+            names.each do |name|
+              name = name.to_s
+              instance_eval do
+                define_method("#{name}?") do
+                  notation.try(:[], 'columns').try(:[], name)
+                end
+                define_method("#{name}=") do |value|
+                  notation['columns'] ||= {}
+                  notation['columns'][name] = value
+                end
+              end
+            end
+          end
+
         end
 
       end
