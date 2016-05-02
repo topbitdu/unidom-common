@@ -33,4 +33,4 @@
 1. Improved the Model Extension concern to add the ::notation_boolean_column method
 
 ## v0.9
-1. Improved the Model Extension concern to support the No-SQL boolean columns query
+1. Improve the Model Extension concern to add the ::notation_boolean_column_where scope

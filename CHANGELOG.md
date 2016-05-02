@@ -31,3 +31,6 @@
 
 ## v0.8
 1. Improved the Model Extension concern to add the ::notation_boolean_column method
+
+## v0.9
+1. Improved the Model Extension concern to add the ::notation_boolean_column_where scope

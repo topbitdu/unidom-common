@@ -26,6 +26,10 @@ module Unidom
             where "#{table_name}.notation -> 'columns' ->> '#{name}' #{operation[:operator]} :value", value: operation[:value]
           end
 
+          scope :notation_boolean_column_where, ->(name, value) do
+            where "(#{table_name}.notation -> 'columns' ->> '#{name}')::boolean = :value", value: (value ? true : false)
+          end
+
           if columns_hash['ordinal'].present?
             validates :ordinal, presence: true, numericality: { integer_only: true, greater_than: 0 }
             scope :ordinal_is, ->(ordinal) { where ordinal: ordinal }
