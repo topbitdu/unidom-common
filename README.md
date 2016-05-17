@@ -76,6 +76,8 @@ Project.notation_column_where(:creator_comment, '=', 'My first project.')
 
 project.enabled = true
 project.enabled? # true
+
+Project.notation_boolean_column_where(:enabled, true) # All enabled projects
 ```
 
 ## ActiveRecord Migration Naming Convention
