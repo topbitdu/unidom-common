@@ -15,11 +15,11 @@ module Unidom
 
           scope :transited_to, ->(states) { where state: states }
 
-          scope :valid_at,       ->(now = Time.now) { where "? BETWEEN #{includer.table_name}.opened_at AND #{includer.table_name}.closed_at", now }
+          scope :valid_at,       ->(now: Time.now) { where "? BETWEEN #{includer.table_name}.opened_at AND #{includer.table_name}.closed_at", now }
           scope :valid_duration, ->(range)          { where "(#{includer.table_name}.opened_at BETWEEN ? AND ?) OR (#{includer.table_name}.closed_at <= ? AND #{includer.table_name}.closed_at >= ?)", range.min, range.max, range.max, range.min }
 
-          scope :alive, ->(living  = true) { where defunct: !living }
-          scope :dead,  ->(defunct = true) { where defunct: defunct }
+          scope :alive, ->(living:  true) { where defunct: !living }
+          scope :dead,  ->(defunct: true) { where defunct: defunct }
 
           scope :notation_column_where, ->(name, operator, value) do
             operation = :like==operator ? { operator: 'ILIKE', value: "%#{value}%" } : { operator: operator.to_s, value: value }
