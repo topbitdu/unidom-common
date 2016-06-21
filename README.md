@@ -83,17 +83,20 @@ Project.notation_boolean_column_where(:enabled, true) # All enabled projects
 
 ## ActiveRecord Migration Naming Convention
 ### Domain Models (200YMMDDHHMMSS)
+
 * unidom-common:         200001DDHHMMSS
 * unidom-visitor:        200002DDHHMMSS
 * unidom-category:       200003DDHHMMSS
 * unidom-authorization:  200004DDHHMMSS
 * unidom-accounting:     200005DDHHMMSS
 * unidom-standard:       200006DDHHMMSS
+
 * unidom-party:          200101DDHHMMSS
 * unidom-certificate:    200102DDHHMMSS
 * unidom-contact:        200103DDHHMMSS
 * unidom-geo:            200104DDHHMMSS
 * unidom-property:       200105DDHHMMSS
+
 * unidom-article_number: 200201DDHHMMSS
 * unidom-product:        200202DDHHMMSS
 * unidom-price:          200203DDHHMMSS
@@ -102,6 +105,8 @@ Project.notation_boolean_column_where(:enabled, true) # All enabled projects
 * unidom-order:          200206DDHHMMSS
 * unidom-promotion:      200207DDHHMMSS
 * unidom-payment:        200208DDHHMMSS
+
+* unidom-position:       200402DDHHMMSS
 
 ### Country Extensions (200YMM9NNNMMSS)
 The YMM part should be identical to the relative part of the Domain Models.
