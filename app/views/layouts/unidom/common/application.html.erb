@@ -3,12 +3,13 @@
 <head>
   <title>Common</title>
   <%= stylesheet_link_tag    'unidom/common/application', media: 'all' %>
-  <%= javascript_include_tag 'unidom/common/application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <%= yield %>
+
+<%= javascript_include_tag 'unidom/common/application' %>
 
 </body>
 </html>
