@@ -34,3 +34,7 @@
 
 ## v0.9
 1. Improved the Model Extension concern to add the ::notation_boolean_column_where scope
+
+## v1.0
+1. Improved the Model Extension concern to check the column type
+2. Improved the Model Extension concern to support the Keyword Arguments

@@ -30,35 +30,35 @@ module Unidom
             where "(#{table_name}.notation -> 'columns' ->> '#{name}')::boolean = :value", value: (value ? true : false)
           end
 
-          if columns_hash['ordinal'].present?
+          if columns_hash['ordinal'].present?&&:integer==columns_hash['ordinal'].type
             validates :ordinal, presence: true, numericality: { integer_only: true, greater_than: 0 }
             scope :ordinal_is, ->(ordinal) { where ordinal: ordinal }
           end
 
-          if columns_hash['uuid'].present?
+          if columns_hash['uuid'].present?&&:uuid==columns_hash['uuid'].type
             validates :uuid, presence: true, length: { is: 36 }
             scope :uuid_is, ->(uuid) { where uuid: uuid }
           end
 
-          if columns_hash['elemental'].present?
+          if columns_hash['elemental'].present?&&:boolean==columns_hash['elemental'].type
             scope :primary, ->(elemental = true) { where elemental: elemental }
           end
 
-          if columns_hash['grade'].present?
+          if columns_hash['grade'].present?&&:integer==columns_hash['grade'].type
             validates :grade, presence: true, numericality: { integer_only: true, greater_than_or_equal_to: 0 }
             scope :grade_is,          ->(grade) { where grade: grade }
             scope :grade_higher_than, ->(grade) { where "grade > :grade", grade: grade }
             scope :grade_lower_than,  ->(grade) { where "grade < :grade", grade: grade }
           end
 
-          if columns_hash['priority'].present?
+          if columns_hash['priority'].present?&&:integer==columns_hash['priority'].type
             validates :priority, presence: true, numericality: { integer_only: true, greater_than_or_equal_to: 0 }
             scope :priority_is,          ->(priority) { where priority: priority }
             scope :priority_higher_than, ->(priority) { where "priority > :priority", priority: priority }
             scope :priority_lower_than,  ->(priority) { where "priority < :priority", priority: priority }
           end
 
-          if columns_hash['slug'].present?
+          if columns_hash['slug'].present?&&:string==columns_hash['slug'].type
             validates :slug, presence: true, length: { in: 1..columns_hash['slug'].limit }, uniqueness: true
             scope :slug_is, ->(slug) { where slug: slug }
             before_validation -> {
@@ -77,13 +77,15 @@ module Unidom
 
             name = column_name.to_s
 
-            if 'code'==name or name.ends_with? '_code'
+            if ('code'==name||name.ends_with?('_code'))&&:string==columns_hash[name].type
               class_eval do
                 if columns_hash[name].null
                   validates name.to_sym, allow_blank: true, length: { maximum: columns_hash[name].limit }
                   scope "#{name}_length_is".to_sym, ->(length) { where "LENGTH(#{name}) = :length", length: length }
-                else
+                elsif columns_hash[name].limit<=4
                   validates name.to_sym, presence: true, length: { is: columns_hash[name].limit }
+                else
+                  validates name.to_sym, presence: true, length: { maximum: columns_hash[name].limit }
                 end
                 scope "#{name}d_as".to_sym,     ->(code) { where     name => code }
                 scope "not_#{name}d_as".to_sym, ->(code) { where.not name => code }
@@ -92,7 +94,7 @@ module Unidom
               end
             end
 
-            if name.ends_with? '_at'
+            if name.ends_with?('_at')&&:datetime==columns_hash[name].type
               matched = /\A(.+)_at\z/.match name
               class_eval do
                 scope :"#{matched[1]}_on",         ->(date)  { where name => date.beginning_of_day..date.end_of_day }
@@ -104,7 +106,7 @@ module Unidom
               end
             end
 
-            if name.ends_with? '_state'
+            if name.ends_with?('_state')&&:string==columns_hash[name].type
               matched = /\A(.+)_state\z/.match name
               class_eval do
                 scope :"#{matched[1]}_transited_to", ->(states) { where name => states }
