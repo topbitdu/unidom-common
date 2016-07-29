@@ -38,3 +38,6 @@
 ## v1.0
 1. Improved the Model Extension concern to check the column type
 2. Improved the Model Extension concern to support the Keyword Arguments
+
+## v1.0.1
+1. Improved the Ruby Gem Specification to support Rails v5.0
