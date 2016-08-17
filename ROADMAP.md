@@ -41,3 +41,6 @@
 
 ## v1.0.1
 1. Improve the Ruby Gem Specification to support Rails v5.0
+
+## v1.1
+1. Improve the Model Extension concern to support the encryption column & digest query
