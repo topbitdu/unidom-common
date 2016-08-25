@@ -41,3 +41,8 @@
 
 ## v1.0.1
 1. Improved the Ruby Gem Specification to support Rails v5.0
+
+## v1.1
+1. Numeration class
+2. AES 256 Cryptor concern
+3. SHA 512 Digester concern
