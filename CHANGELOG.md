@@ -46,3 +46,8 @@
 1. Numeration class
 2. AES 256 Cryptor concern
 3. SHA 512 Digester concern
+
+## v1.2
+1. MD 5 Digester concern
+2. SHA 256 Digester concern
+3. SHA 384 Digester concern

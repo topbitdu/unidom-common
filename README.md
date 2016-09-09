@@ -126,6 +126,87 @@ decrypted     = identity_card.decrypt_identification_number
 # The AES 256 Cryptor also has the #hex_encrypt and the #hex_decrypt methods
 ```
 
+## MD 5 Digester
+```ruby
+class IdentityCard
+
+  include Unidom::Common::Concerns::Md5Digester
+  attr_accessor :identification_number
+
+  def initialize(identification_number)
+    self.identification_number = identification_number
+  end
+
+  def digest_identification_number
+    digest identification_number, pepper: self.class.name
+  end
+
+  def hex_digest_identification_number
+    hex_digest identification_number, pepper: self.class.name
+  end
+
+end
+
+identity_card = IdentityCard.new '9527'
+digested      = identity_card.digest_identification_number
+hex_digested  = identity_card.hex_digest_identification_number
+hex_digested == Unidom::Common::Numeration.hex digested # true
+```
+
+## SHA 256 Digester
+```ruby
+class IdentityCard
+
+  include Unidom::Common::Concerns::Sha256Digester
+  attr_accessor :identification_number
+
+  def initialize(identification_number)
+    self.identification_number = identification_number
+  end
+
+  def digest_identification_number
+    digest identification_number, pepper: self.class.name
+  end
+
+  def hex_digest_identification_number
+    hex_digest identification_number, pepper: self.class.name
+  end
+
+end
+
+identity_card = IdentityCard.new '9527'
+digested      = identity_card.digest_identification_number
+hex_digested  = identity_card.hex_digest_identification_number
+hex_digested == Unidom::Common::Numeration.hex digested # true
+```
+
+## SHA 384 Digester
+```ruby
+class IdentityCard
+
+  include Unidom::Common::Concerns::Sha384Digester
+  attr_accessor :identification_number
+
+  def initialize(identification_number)
+    self.identification_number = identification_number
+  end
+
+  def digest_identification_number
+    digest identification_number, pepper: self.class.name
+  end
+
+  def hex_digest_identification_number
+    hex_digest identification_number, pepper: self.class.name
+  end
+
+end
+
+identity_card = IdentityCard.new '9527'
+digested      = identity_card.digest_identification_number
+hex_digested  = identity_card.hex_digest_identification_number
+hex_digested == Unidom::Common::Numeration.hex digested # true
+```
+
 ## SHA 512 Digester
 ```ruby
 class IdentityCard
@@ -152,6 +233,7 @@ digested      = identity_card.digest_identification_number
 hex_digested  = identity_card.hex_digest_identification_number
 hex_digested == Unidom::Common::Numeration.hex digested # true
 ```
+
 
 ## ActiveRecord Migration Naming Convention
 ### Domain Models (200YMMDDHHMMSS)
