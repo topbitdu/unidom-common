@@ -6,7 +6,7 @@ module Unidom
 
         extend ActiveSupport::Concern
 
-        self.included do |includer|
+        included do |includer|
 
           validates :state, presence: true, length: { is: columns_hash['state'].limit }
 
