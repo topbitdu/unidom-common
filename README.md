@@ -305,6 +305,7 @@ hex_digested == Unidom::Common::Numeration.hex digested # true
       <td>The Standard domain model engine includes the Standard model and the Standard Associating model. 标准领域模型引擎包括行为标准和标准关联的模型。</td>
     </tr>
 
+
     <tr>
       <td>[![unidom-party](https://badge.fury.io/rb/unidom-party.svg)](https://github.com/topbitdu/unidom-party)</td>
       <td>200101DDHHMMSS</td>
@@ -347,6 +348,7 @@ hex_digested == Unidom::Common::Numeration.hex digested # true
       </td>
       <td>The Geo domain model engine includes the Location and Locating models. 地理领域模型引擎包括位置和定位的模型。</td>
     </tr>
+
 
     <tr>
       <td>[![unidom-article_number](https://badge.fury.io/rb/unidom-article_number.svg)](https://github.com/topbitdu/unidom-article_number)</td>
@@ -400,6 +402,19 @@ hex_digested == Unidom::Common::Numeration.hex digested # true
     </tr>
 
     <tr>
+      <td>[![unidom-inventory](https://badge.fury.io/rb/unidom-inventory.svg)](https://github.com/topbitdu/unidom-inventory)</td>
+      <td>200209DDHHMMSS</td>
+      <td>
+        - Serialized Inventory Item
+        - Grouped Inventory Item
+        - Lot
+        - Inventory Item Variance
+      </td>
+      <td>The Inventory domain model engine includes the Serialized Inventory Item, the Grouped Inventory Item, the Lot, and the Inventory Item Variance models. 库存领域模型引擎包括序列化库存项、分组库存项、批量和库存项变化的模型。</td>
+    </tr>
+
+
+    <tr>
       <td>[![unidom-position](https://badge.fury.io/rb/unidom-position.svg)](https://github.com/topbitdu/unidom-position)</td>
       <td>200402DDHHMMSS</td>
       <td>
@@ -420,6 +435,7 @@ hex_digested == Unidom::Common::Numeration.hex digested # true
       </td>
       <td>The Position domain model engine includes the Post Fulfillment and its relative models. 就职领域模型引擎包括岗位履行及其相关的模型。</td>
     </tr>
+
 
   </tbody>
 </table>
