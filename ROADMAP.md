@@ -51,3 +51,7 @@
 1. MD 5 Digester concern
 2. SHA 256 Digester concern
 3. SHA 384 Digester concern
+
+## v1.3
+1. SHA 1 Digester concern
+2. SHA 2 Digester concern
