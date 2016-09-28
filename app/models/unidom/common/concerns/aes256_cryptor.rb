@@ -5,6 +5,30 @@ module Unidom::Common::Concerns::Aes256Cryptor
   included do |includer|
 
     def encrypt(message, key: nil)
+      self.class.encrypt message, key: key
+    end
+
+    def decrypt(encoded, key: nil)
+      self.class.decrypt encoded, key: key
+    end
+
+    def aes_256_padding
+      self.class.aes_256_padding
+    end
+
+    def hex_encrypt(message, key: nil)
+      self.class.hex_encrypt message, key: key
+    end
+
+    def hex_decrypt(encoded, key: nil)
+      self.class.hex_decrypt encoded, key: key
+    end
+
+  end
+
+  module ClassMethods
+
+    def encrypt(message, key: nil)
 
       raise ArgumentError.new('The message argument is required.') if message.blank?
       raise ArgumentError.new('The key argument is required.')     if key.blank?
