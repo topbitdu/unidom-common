@@ -7,28 +7,43 @@
 Unidom (UNIfied Domain Object Model) is a series of domain model engines. The Common domain model engine includes the common models.
 Unidom (统一领域对象模型)是一系列的领域模型引擎。常用领域模型引擎包括一些常用的模型。
 
+
+
 ## Recent Update
+
 Check out the [Road Map](ROADMAP.md) to find out what's the next.
 Check out the [Change Log](CHANGELOG.md) to find out what's new.
 
+
+
 ## Usage in Gemfile
+
 ```ruby
 gem 'unidom-common'
 ```
 
+
+
 ## Run the Database Migration
+
 ```shell
 rake db:migrate
 ```
 The migration versions starts with 200001.
 The migration enabled the PostgreSQL uuid-ossp extension.
 
+
+
 ## Include Concern in Models
+
 ```ruby
 include Unidom::Common::Concerns::ModelExtension
 ```
 
+
+
 ## Model Extension concern
+
 ```ruby
 class Project < ActiveRecord::Base
 
@@ -54,7 +69,10 @@ Project.created_not_before('2015-01-01 00:00:00')
 Project.audition_transited_to('A').transited_to('C')
 ```
 
+
+
 ## No-SQL Columns
+
 ```ruby
 class Project < ActiveRecord::Base
 
@@ -81,7 +99,10 @@ project.enabled? # true
 Project.notation_boolean_column_where(:enabled, true) # All enabled projects
 ```
 
+
+
 ## Numeration
+
 ```ruby
 binary = 'some string'
 hex = Unidom::Common::Numeration.hex binary # "736f6d6520737472696e67"
@@ -91,7 +112,10 @@ text = Unidom::Common::Numeration.rev_hex hex # "some string"
 # convert a hex string to its text value
 ```
 
+
+
 ## AES 256 Cryptor
+
 ```ruby
 class IdentityCard
 
@@ -126,7 +150,10 @@ decrypted     = identity_card.decrypt_identification_number
 # The AES 256 Cryptor also has the #hex_encrypt and the #hex_decrypt methods
 ```
 
+
+
 ## MD 5 Digester
+
 ```ruby
 class IdentityCard
 
@@ -153,7 +180,10 @@ hex_digested  = identity_card.hex_digest_identification_number
 hex_digested == Unidom::Common::Numeration.hex digested # true
 ```
 
+
+
 ## SHA 256 Digester
+
 ```ruby
 class IdentityCard
 
@@ -180,7 +210,10 @@ hex_digested  = identity_card.hex_digest_identification_number
 hex_digested == Unidom::Common::Numeration.hex digested # true
 ```
 
+
+
 ## SHA 384 Digester
+
 ```ruby
 class IdentityCard
 
@@ -207,7 +240,10 @@ hex_digested  = identity_card.hex_digest_identification_number
 hex_digested == Unidom::Common::Numeration.hex digested # true
 ```
 
+
+
 ## SHA 512 Digester
+
 ```ruby
 class IdentityCard
 
@@ -235,7 +271,9 @@ hex_digested == Unidom::Common::Numeration.hex digested # true
 ```
 
 
+
 ## SHA 1 Digester
+
 ```ruby
 class IdentityCard
 
@@ -261,9 +299,11 @@ digested      = identity_card.digest_identification_number
 hex_digested  = identity_card.hex_digest_identification_number
 hex_digested == Unidom::Common::Numeration.hex digested # true
 ```
+
 
 
 ## SHA 2 Digester
+
 ```ruby
 class IdentityCard
 
@@ -291,7 +331,9 @@ hex_digested == Unidom::Common::Numeration.hex digested # true
 ```
 
 
+
 ## ActiveRecord Migration Naming Convention
+
 ### Domain Models (200YMMDDHHMMSS)
 
 <table class='table table-striped table-hover'>
@@ -522,6 +564,7 @@ hex_digested == Unidom::Common::Numeration.hex digested # true
 </table>
 
 ### Country Extensions (200YMM9NNNMMSS)
+
 The YMM part should be identical to the relative part of the Domain Models.
 The NNN is the numeric code of [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1 "codes for the names of countries, dependent territories, and special areas of geographical interest").
 The numeric code of China is 156.
