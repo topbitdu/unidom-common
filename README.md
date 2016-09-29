@@ -481,6 +481,19 @@ hex_digested == Unidom::Common::Numeration.hex digested # true
       <td>The Inventory domain model engine includes the Serialized Inventory Item, the Grouped Inventory Item, the Lot, and the Inventory Item Variance models. 库存领域模型引擎包括序列化库存项、分组库存项、批量和库存项变化的模型。</td>
     </tr>
 
+    <tr>
+      <td>[![unidom-shipment](https://badge.fury.io/rb/unidom-shipment.svg)](https://github.com/topbitdu/unidom-shipment)</td>
+      <td>200210DDHHMMSS</td>
+      <td>
+        - Shipment
+        - Shipment Item
+        - Shipment Package
+        - Shipment Package Item
+        - Shipment Receipt
+      </td>
+      <td>The Shipment domain model engine includes the Shipment, Shipment Item, Shipment Package, Shipment Package Item, and Shipment Receipt model. 装运领域模型引擎包括装运、装运项、装运包裹、装运包裹项、装运收据的模型。</td>
+    </tr>
+
 
     <tr>
       <td>[![unidom-position](https://badge.fury.io/rb/unidom-position.svg)](https://github.com/topbitdu/unidom-position)</td>
