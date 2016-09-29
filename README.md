@@ -352,6 +352,18 @@ hex_digested == Unidom::Common::Numeration.hex digested # true
     </tr>
 
     <tr>
+      <td>[![unidom-action](https://badge.fury.io/rb/unidom-action.svg)](https://github.com/topbitdu/unidom-action)</td>
+      <td>200005DDHHMMSS</td>
+      <td>
+        - Reason
+        - State Transition
+        - Obsolescence
+        - Acting
+      </td>
+      <td>The Action domain model engine includes the Reason, State Transition, Obsolescene, and the Acting models. 审计领域模型引擎包括原因、状态迁移、废弃和行为日志的模型。</td>
+    </tr>
+
+    <tr>
       <td>[![unidom-standard](https://badge.fury.io/rb/unidom-standard.svg)](https://github.com/topbitdu/unidom-standard)</td>
       <td>200006DDHHMMSS</td>
       <td>
