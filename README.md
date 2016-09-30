@@ -54,8 +54,16 @@ class Project < ActiveRecord::Base
 
   belongs_to :customer
   belongs_to :team
+  belongs_to :place
 
   # other fields: code, description
+
+  def kick_off(in: nil)
+    assert_present! :in, in
+    # An argument error is raised if in is blank.
+
+    self.place = in
+  end
 
 end
 
