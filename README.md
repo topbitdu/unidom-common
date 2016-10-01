@@ -359,212 +359,248 @@ hex_digested == Unidom::Common::Numeration.hex digested # true
   <tbody>
 
     <tr>
-      <td>[![unidom-common](https://badge.fury.io/rb/unidom-common.svg)](https://github.com/topbitdu/unidom-common)</td>
+      <td><a href="https://github.com/topbitdu/unidom-common">unidom-common</a></td>
       <td>200001DDHHMMSS</td>
       <td>-</td>
       <td>The Common domain model engine includes the common models. 常用领域模型引擎包括一些常用的模型。</td>
     </tr>
 
     <tr>
-      <td>[![unidom-visitor](https://badge.fury.io/rb/unidom-visitor.svg)](https://github.com/topbitdu/unidom-visitor)</td>
+      <td><a href="https://github.com/topbitdu/unidom-visitor">unidom-visitor</a></td>
       <td>200002DDHHMMSS</td>
       <td>
-        - Identificating
-        - Authenticating
-        - Recognization
-        - User
-        - Guest
-        - Password
+        <ul>
+          <li>Identificating</li>
+          <li>Authenticating</li>
+          <li>Recognization</li>
+          <li>User</li>
+          <li>Guest</li>
+          <li>Password</li>
+        <ul>
       </td>
       <td>The Visitor domain model engine includes Identificating, Authenticating, Recognization, Visitor (User &amp; Guest), and Password models. 访问者领域模型引擎包括身份标识、身份鉴别、身份识别、访问者（用户和游客）、密码的模型。</td>
     </tr>
 
     <tr>
-      <td>[![unidom-category](https://badge.fury.io/rb/unidom-category.svg)](https://github.com/topbitdu/unidom-category)</td>
+      <td><a href="https://github.com/topbitdu/unidom-category">unidom-category</a></td>
       <td>200003DDHHMMSS</td>
       <td>
-        - Category
-        - Categorizing
-        - Category Rollup
-        - Category Associating
+        <ul>
+          <li>Category</li>
+          <li>Categorizing</li>
+          <li>Category Rollup</li>
+          <li>Category Associating</li>
+        <ul>
       </td>
       <td>The Category domain model engine includes Category and its relative models. 类别领域模型引擎包括类别及其相关的模型。</td>
     </tr>
 
     <tr>
-      <td>[![unidom-authorization](https://badge.fury.io/rb/unidom-authorization.svg)](https://github.com/topbitdu/unidom-authorization)</td>
+      <td><a href="https://github.com/topbitdu/unidom-authorization">unidom-authorization</a></td>
       <td>200004DDHHMMSS</td>
       <td>
-        - Permission
-        - Authorizing
+        <ul>
+          <li>Permission</li>
+          <li>Authorizing</li>
+        <ul>
       </td>
       <td>The Authorization domain model engine includes the Permission and Authorizing models. 授权领域模型引擎包括权限、授权的模型。</td>
     </tr>
 
     <tr>
-      <td>[![unidom-action](https://badge.fury.io/rb/unidom-action.svg)](https://github.com/topbitdu/unidom-action)</td>
+      <td><a href="https://github.com/topbitdu/unidom-action">unidom-action</a></td>
       <td>200005DDHHMMSS</td>
       <td>
-        - Reason
-        - State Transition
-        - Obsolescence
-        - Acting
+        <ul>
+          <li>Reason</li>
+          <li>State Transition</li>
+          <li>Obsolescing</li>
+          <li>Acting</li>
+        </ul>
       </td>
-      <td>The Action domain model engine includes the Reason, State Transition, Obsolescene, and the Acting models. 审计领域模型引擎包括原因、状态迁移、废弃和行为日志的模型。</td>
+      <td>The Action domain model engine includes the Reason, State Transition, Obsolescing, and the Acting models. 审计领域模型引擎包括原因、状态迁移、废弃和行为日志的模型。</td>
     </tr>
 
     <tr>
-      <td>[![unidom-standard](https://badge.fury.io/rb/unidom-standard.svg)](https://github.com/topbitdu/unidom-standard)</td>
+      <td><a href="https://github.com/topbitdu/unidom-standard">unidom-standard</a></td>
       <td>200006DDHHMMSS</td>
       <td>
-        - Standard
-        - Standard Associating
+        <ul>
+          <li>Standard</li>
+          <li>Standard Associating</li>
+        </ul>
       </td>
       <td>The Standard domain model engine includes the Standard model and the Standard Associating model. 标准领域模型引擎包括行为标准和标准关联的模型。</td>
     </tr>
 
 
     <tr>
-      <td>[![unidom-party](https://badge.fury.io/rb/unidom-party.svg)](https://github.com/topbitdu/unidom-party)</td>
+      <td><a href="https://github.com/topbitdu/unidom-party">unidom-party</a></td>
       <td>200101DDHHMMSS</td>
       <td>
-        - Person
-        - Shop
-        - Company
-        - Government Agency
-        - Party Relation
+        <ul>
+          <li>Person</li>
+          <li>Shop</li>
+          <li>Company</li>
+          <li>Government Agency</li>
+          <li>Party Relation</li>
+        </ul>
       </td>
       <td>The Party domain model engine includes the Person, Shop, Company, Government Agency, and the Party Relation models. 参与者领域模型引擎包括个人、店铺、公司、政府机构、参与者关系的模型。</td>
     </tr>
 
     <tr>
-      <td>[![unidom-certificate](https://badge.fury.io/rb/unidom-certificate.svg)](https://github.com/topbitdu/unidom-certificate)</td>
+      <td><a href="https://github.com/topbitdu/unidom-certificate">unidom-certificate</a></td>
       <td>200102DDHHMMSS</td>
       <td>
-        - Certificating
+        <ul>
+          <li>Certificating</li>
+        </ul>
       </td>
       <td>The Certificate domain model engine includes the Certificating model.
 证书领域模型引擎包括证书认证的模型。</td>
     </tr>
 
     <tr>
-      <td>[![unidom-contact](https://badge.fury.io/rb/unidom-contact.svg)](https://github.com/topbitdu/unidom-contact)</td>
+      <td><a href="https://github.com/topbitdu/unidom-contact">unidom-contact</a></td>
       <td>200103DDHHMMSS</td>
       <td>
-        - Contact Subscription
-        - Email Address
+        <ul>
+          <li>Contact Subscription</li>
+          <li>Email Address</li>
+        </ul>
       </td>
       <td>The Contact domain model engine includes the Contact Subscription and Email Address models. 联系方式领域模型引擎包括联系方式订阅和电子邮箱地址的模型。</td>
     </tr>
 
     <tr>
-      <td>[![unidom-geo](https://badge.fury.io/rb/unidom-geo.svg)](https://github.com/topbitdu/unidom-geo)</td>
+      <td><a href="https://github.com/topbitdu/unidom-geo">unidom-geo</a></td>
       <td>200104DDHHMMSS</td>
       <td>
-        - Location
-        - Locating
+        <ul>
+          <li>Location</li>
+          <li>Locating</li>
+        </ul>
       </td>
       <td>The Geo domain model engine includes the Location and Locating models. 地理领域模型引擎包括位置和定位的模型。</td>
     </tr>
 
 
     <tr>
-      <td>[![unidom-article_number](https://badge.fury.io/rb/unidom-article_number.svg)](https://github.com/topbitdu/unidom-article_number)</td>
+      <td><a href="https://github.com/topbitdu/unidom-article_number">unidom-article_number</a></td>
       <td>200201DDHHMMSS</td>
       <td>
-        - Marking
-        - EAN 13 Barcode
-        - EAN 8 Barcode
+        <ul>
+          <li>Marking</li>
+          <li>EAN 13 Barcode</li>
+          <li>EAN 8 Barcode</li>
+        </ul>
       </td>
       <td>The Article Number domain model engine includes Marking, EAN-13, and EAN-8 models. 物品编码领域模型引擎包括打码、EAN-13和EAN-8的模型。</td>
     </tr>
 
     <tr>
-      <td>[![unidom-product](https://badge.fury.io/rb/unidom-product.svg)](https://github.com/topbitdu/unidom-product)</td>
+      <td><a href="https://github.com/topbitdu/unidom-product">unidom-product</a></td>
       <td>200202DDHHMMSS</td>
       <td>
-        - Product
-        - Product Associating
+        <ul>
+          <li>Product</li>
+          <li>Product Associating</li>
+        </ul>
       </td>
       <td>The Product domain model engine includes Product and Produt Associating models. 产品领域模型引擎包括产品和产品关联的模型。</td>
     </tr>
 
     <tr>
-      <td>[![unidom-price](https://badge.fury.io/rb/unidom-price.svg)](https://github.com/topbitdu/unidom-price)</td>
+      <td><a href="https://github.com/topbitdu/unidom-price">unidom-price</a></td>
       <td>200203DDHHMMSS</td>
       <td>
-        - Price
+        <ul>
+          <li>Price</li>
+        </ul>
       </td>
       <td>The Price domain model engine includes Price and its relative models. 价格领域模型引擎包括定价及其相关的模型。</td>
     </tr>
 
     <tr>
-      <td>[![unidom-shopping](https://badge.fury.io/rb/unidom-shopping.svg)](https://github.com/topbitdu/unidom-shopping)</td>
+      <td><a href="https://github.com/topbitdu/unidom-shopping">unidom-shopping</a></td>
       <td>200205DDHHMMSS</td>
       <td>
-        - Shopping Cart
-        - Shopping Item
+        <ul>
+          <li>Shopping Cart</li>
+          <li>Shopping Item</li>
+        </ul>
       </td>
       <td>The Shopping domain model engine includes Shopping Cart and Shopping Item models. 购物领域模型引擎包括购物车和购物项的模型。</td>
     </tr>
 
     <tr>
-      <td>[![unidom-order](https://badge.fury.io/rb/unidom-order.svg)](https://github.com/topbitdu/unidom-order)</td>
+      <td><a href="https://github.com/topbitdu/unidom-order">unidom-order</a></td>
       <td>200206DDHHMMSS</td>
       <td>
-        - Order
-        - Order Item
-        - Order Adjustment
+        <ul>
+          <li>Order</li>
+          <li>Order Item</li>
+          <li>Order Adjustment</li>
+        </ul>
       </td>
       <td>The Order domain model engine includes Order, Order Item, and Order Adjustment models. 订单领域模型引擎包括订单、订单项和订单调整的模型。</td>
     </tr>
 
     <tr>
-      <td>[![unidom-inventory](https://badge.fury.io/rb/unidom-inventory.svg)](https://github.com/topbitdu/unidom-inventory)</td>
+      <td><a href="https://github.com/topbitdu/unidom-inventory">unidom-inventory</a></td>
       <td>200209DDHHMMSS</td>
       <td>
-        - Serialized Inventory Item
-        - Grouped Inventory Item
-        - Lot
-        - Inventory Item Variance
+        <ul>
+          <li>Serialized Inventory Item</li>
+          <li>Grouped Inventory Item</li>
+          <li>Lot</li>
+          <li>Inventory Item Variance</li>
+        </ul>
       </td>
       <td>The Inventory domain model engine includes the Serialized Inventory Item, the Grouped Inventory Item, the Lot, and the Inventory Item Variance models. 库存领域模型引擎包括序列化库存项、分组库存项、批量和库存项变化的模型。</td>
     </tr>
 
     <tr>
-      <td>[![unidom-shipment](https://badge.fury.io/rb/unidom-shipment.svg)](https://github.com/topbitdu/unidom-shipment)</td>
+      <td><a href="https://github.com/topbitdu/unidom-shipment">unidom-shipment</a></td>
       <td>200210DDHHMMSS</td>
       <td>
-        - Shipment
-        - Shipment Item
-        - Shipment Package
-        - Shipment Package Item
-        - Shipment Receipt
+        <ul>
+          <li>Shipment</li>
+          <li>Shipment Item</li>
+          <li>Shipment Package</li>
+          <li>Shipment Package Item</li>
+          <li>Shipment Receipt</li>
+        </ul>
       </td>
       <td>The Shipment domain model engine includes the Shipment, Shipment Item, Shipment Package, Shipment Package Item, and Shipment Receipt model. 装运领域模型引擎包括装运、装运项、装运包裹、装运包裹项、装运收据的模型。</td>
     </tr>
 
 
     <tr>
-      <td>[![unidom-position](https://badge.fury.io/rb/unidom-position.svg)](https://github.com/topbitdu/unidom-position)</td>
+      <td><a href="https://github.com/topbitdu/unidom-position">unidom-position</a></td>
       <td>200402DDHHMMSS</td>
       <td>
-        - Occupation
-        - Position
-        - Post
-        - Position Reporting Structure
+        <ul>
+          <li>Occupation</li>
+          <li>Position</li>
+          <li>Post</li>
+          <li>Position Reporting Structure</li>
+        </ul>
       </td>
       <td>The Position domain model engine includes the Occupation, Position, Post, and Position Reporting Structure models.
 职位领域模型引擎包括职业、职位、岗位及岗位报告关系模型。</td>
     </tr>
 
     <tr>
-      <td>[![unidom-accession](https://badge.fury.io/rb/unidom-accession.svg)](https://github.com/topbitdu/unidom-accession)</td>
+      <td><a href="https://github.com/topbitdu/unidom-accession">unidom-accession</a></td>
       <td>200405DDHHMMSS</td>
       <td>
-        - Post Fulfillment
+        <ul>
+          <li>Post Fulfillment</li>
+        </ul>
       </td>
-      <td>The Position domain model engine includes the Post Fulfillment and its relative models. 就职领域模型引擎包括岗位履行及其相关的模型。</td>
+      <td>The Accession domain model engine includes the Post Fulfillment and its relative models. 就职领域模型引擎包括岗位履行及其相关的模型。</td>
     </tr>
 
 
