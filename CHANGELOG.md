@@ -60,3 +60,6 @@
 
 ## v1.4
 1. Improve the Model Extension concern to add the #assert_present! & the .assert_present! method
+
+## v1.5
+1. Improve the Model Extension concern to support the Exact Column specification

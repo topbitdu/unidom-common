@@ -109,6 +109,61 @@ Project.notation_boolean_column_where(:enabled, true) # All enabled projects
 
 
 
+## Exact Columns
+
+```ruby
+# db/migrate/YYYYMMDDHHMMSS_create_people.rb
+class CreatePeople < ActiveRecord::Migration[5.0]
+
+  def change
+
+    create_table :people, id: :uuid do |t|
+
+      t.string :name, null: false, default: '', limit: 200
+
+      t.string :passport_number, null: false, default: nil, limit: 200
+
+      t.binary :identification_number_exact_signature, null: false, default: nil, limit: 80
+      t.binary :passport_number_exact_signature,       null: false, default: nil, limit: 80
+
+      t.column   :state, 'char(1)', null: false, default: 'C'
+      t.datetime :opened_at,        null: false, default: Time.utc(1970)
+      t.datetime :closed_at,        null: false, default: Time.utc(3000)
+      t.boolean  :defunct,          null: false, default: false
+      t.jsonb    :notation,         null: false, default: {}
+
+      t.timestamps null: false
+
+    end
+
+    add_index :people, :identification_number_exact_signature, unique: true
+    add_index :people, :passport_number_exact_signature,       unique: true
+
+  end
+
+end
+
+# app/models/person.rb
+class Person < ApplicationRecord
+
+  include Unidom::Common::Concerns::ModelExtension
+
+  attr_accessor :identification_number
+  # The identification number is not stored. Only the exact signature is stored like password.
+  exact_column  :identification_number, :passport_number
+  # The passport number is stored in the clear text format.
+
+end
+
+# in any controller or rails console:
+person = Person.new name: 'Tim', identification_number: '11010119901231001X', passport_number: 'E00000000'
+person.save!
+Person.identification_number_is('11010119901231001X').first==person # true
+Person.passport_number_is('E00000000').first==person                # true
+```
+
+
+
 ## Numeration
 
 ```ruby
