@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    unidom-common (1.4)
+    unidom-common (1.5)
       pg (~> 0)
       rails (>= 4.2)
 
