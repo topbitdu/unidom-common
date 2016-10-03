@@ -63,3 +63,6 @@
 
 ## v1.5
 1. Improve the Model Extension concern to support the Exact Column specification
+
+## v1.6
+1. Improve the Model Extension concern to support the Secure Column specification
