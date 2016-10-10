@@ -65,4 +65,11 @@
 1. Improve the Model Extension concern to support the Exact Column specification
 
 ## v1.6
-1. Improve the Model Extension concern to support the Secure Column specification
+1. Secure Column concern
+2. Exact Column concern
+3. Argument Validation concern
+4. Notation Column concern
+5. Improve the Model Extension concern to include the Secure Column concern
+6. Improve the Model Extension concern to include the Exact Column concern
+7. Improve the Model Extension concern to include the Argument Validation concern
+8. Improve the Model Extension concern to include the Notation Column concern
