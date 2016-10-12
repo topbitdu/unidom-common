@@ -3,20 +3,26 @@ module Unidom::Common::Concerns::ExactColumn
   extend ActiveSupport::Concern
 
   included do |includer|
+
+    cattr_accessor :exact_column_names
+
   end
 
   module ClassMethods
 
     def exact_column(*names)
+
+      exact_column_names = exact_column_names||[]
+      exact_column_names += names
+
       names.each do |name|
         name = name.to_s
         instance_eval do
           scope :"#{name}_is", ->(value) { where "#{name}_exact_signature" => exact_signature(self, name, value) }
-          before_save do
-            send "#{name}_exact_signature=", self.class.exact_signature(self.class, name, send(name))
-          end
+          before_save do send "#{name}_exact_signature=", self.class.exact_signature(self.class, name, send(name)) end
         end
       end
+
     end
 
     def exact_signature(klass, name, value)
