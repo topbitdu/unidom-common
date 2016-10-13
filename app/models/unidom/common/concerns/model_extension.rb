@@ -2,6 +2,11 @@ module Unidom::Common::Concerns::ModelExtension
 
   extend ActiveSupport::Concern
 
+  include Unidom::Common::Concerns::ArgumentValidation
+  include Unidom::Common::Concerns::NotationColumn
+  include Unidom::Common::Concerns::ExactColumn
+  include Unidom::Common::Concerns::SecureColumn
+
   included do |includer|
 
     validates :state, presence: true, length: { is: columns_hash['state'].limit }
@@ -17,6 +22,7 @@ module Unidom::Common::Concerns::ModelExtension
     scope :alive, ->(living:  true) { where defunct: !living }
     scope :dead,  ->(defunct: true) { where defunct: defunct }
 
+=begin
     scope :notation_column_where, ->(name, operator, value) do
       operation = :like==operator ? { operator: 'ILIKE', value: "%#{value}%" } : { operator: operator.to_s, value: value }
       where "#{table_name}.notation -> 'columns' ->> '#{name}' #{operation[:operator]} :value", value: operation[:value]
@@ -25,6 +31,7 @@ module Unidom::Common::Concerns::ModelExtension
     scope :notation_boolean_column_where, ->(name, value) do
       where "(#{table_name}.notation -> 'columns' ->> '#{name}')::boolean = :value", value: (value ? true : false)
     end
+=end
 
     if columns_hash['ordinal'].present?&&:integer==columns_hash['ordinal'].type
       validates :ordinal, presence: true, numericality: { integer_only: true, greater_than: 0 }
@@ -136,9 +143,11 @@ module Unidom::Common::Concerns::ModelExtension
       end
     end
 
+=begin
     def assert_present!(name, value)
       raise ArgumentError.new("The #{name} argument is required.") if value.blank?
     end
+=end
 
   end
 
@@ -147,7 +156,7 @@ module Unidom::Common::Concerns::ModelExtension
     def to_id(model)
       model.respond_to?(:id) ? model.id : model
     end
-
+=begin
     def notation_column(*names)
       names.each do |name|
         name = name.to_s
@@ -177,7 +186,9 @@ module Unidom::Common::Concerns::ModelExtension
         end
       end
     end
+=end
 
+=begin
     def exact_column(*names)
       names.each do |name|
         name = name.to_s
@@ -189,15 +200,20 @@ module Unidom::Common::Concerns::ModelExtension
         end
       end
     end
+=end
 
+=begin
     def assert_present!(name, value)
       raise ArgumentError.new("The #{name} argument is required.") if value.blank?
     end
+=end
 
+=begin
     def exact_signature(klass, name, value)
       text = "#{Rails.application.secrets[:secret_key_base]}@#{Rails.root}/#{klass.table_name}##{name}=#{value}"
       "#{Digest::MD5.digest(text)}#{Digest::SHA512.digest(text)}"
     end
+=end
 
   end
 
