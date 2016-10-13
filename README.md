@@ -164,6 +164,126 @@ Person.passport_number_is('E00000000').first==person                # true
 
 
 
+## Secure Column
+
+```ruby
+# db/migrate/YYYYMMDDHHMMSS_create_orderings.rb
+class CreateOrderings < ActiveRecord::Migration[5.0]
+
+  def change
+
+    create_table :orderings, id: :uuid do |t|
+
+      t.string :placer_name,   null: false, default: nil, limit: 200
+      t.string :taker_name,    null: false, default: nil, limit: 200
+      t.string :receiver_name, null: false, default: nil, limit: 200
+
+      t.jsonb :placer
+      t.jsonb :taker
+      t.jsonb :receiver
+
+      t.binary :placer_identification_number_exact_signature,   null: false, default: nil, limit: 80
+      t.binary :placer_mobile_phone_number_exact_signature,     null: false, default: nil, limit: 80
+      t.binary :taker_identification_number_exact_signature,    null: false, default: nil, limit: 80
+      t.binary :taker_mobile_phone_number_exact_signature,      null: false, default: nil, limit: 80
+      t.binary :receiver_identification_number_exact_signature, null: false, default: nil, limit: 80
+      t.binary :receiver_mobile_phone_number_exact_signature,   null: false, default: nil, limit: 80
+
+      t.column   :state, 'char(1)', null: false, default: 'C'
+      t.datetime :opened_at,        null: false, default: Time.utc(1970)
+      t.datetime :closed_at,        null: false, default: Time.utc(3000)
+      t.boolean  :defunct,          null: false, default: false
+      t.jsonb    :notation,         null: false, default: {}
+
+      t.timestamps
+
+    end
+
+    add_index :orderings, :placer_identification_number_exact_signature,   name: :index_orderings_on_placer_identification_number
+    add_index :orderings, :placer_mobile_phone_number_exact_signature,     name: :index_orderings_on_placer_mobile_phone_number
+    add_index :orderings, :taker_identification_number_exact_signature,    name: :index_orderings_on_taker_identification_number
+    add_index :orderings, :taker_mobile_phone_number_exact_signature,      name: :index_orderings_on_taker_mobile_phone_number
+    add_index :orderings, :receiver_identification_number_exact_signature, name: :index_orderings_on_receiver_identification_number
+    add_index :orderings, :receiver_mobile_phone_number_exact_signature,   name: :index_orderings_on_receiver_mobile_phone_number
+
+  end
+
+end
+
+# app/models/orderings.rb
+class Ordering < ApplicationRecord
+
+  include Unidom::Common::Concerns::ModelExtension
+
+  validates :placer_name,   presence: true, length: { in: 2..columns_hash['placer_name'].limit   }
+  validates :taker_name,    presence: true, length: { in: 2..columns_hash['taker_name'].limit    }
+  validates :receiver_name, presence: true, length: { in: 2..columns_hash['receiver_name'].limit }
+
+  validates :placer_address,   presence: true, length: { in: 2..200 }
+  validates :taker_address,    presence: true, length: { in: 2..200 }
+  validates :receiver_address, presence: true, length: { in: 2..200 }
+
+  validates :placer_identification_number,   presence: true, length: { is: 18 }, format: Unidom::Certificate::China::IdentityCard::FORMAT_VALIDATION_REGEX
+  validates :taker_identification_number,    presence: true, length: { is: 18 }, format: Unidom::Certificate::China::IdentityCard::FORMAT_VALIDATION_REGEX
+  validates :receiver_identification_number, presence: true, length: { is: 18 }, format: Unidom::Certificate::China::IdentityCard::FORMAT_VALIDATION_REGEX
+
+  validates :placer_mobile_phone_number,   presence: true, length: { is: 11 }, numericality: { integer_only: true }, format: Unidom::Contact::China::MobilePhoneNumber::FORMAT_VALIDATION_REGEX
+  validates :taker_mobile_phone_number,    presence: true, length: { is: 11 }, numericality: { integer_only: true }, format: Unidom::Contact::China::MobilePhoneNumber::FORMAT_VALIDATION_REGEX
+  validates :receiver_mobile_phone_number, presence: true, length: { is: 11 }, numericality: { integer_only: true }, format: Unidom::Contact::China::MobilePhoneNumber::FORMAT_VALIDATION_REGEX
+
+  exact_column :placer_identification_number,   :placer_mobile_phone_number
+  exact_column :taker_identification_number,    :taker_mobile_phone_number
+  exact_column :receiver_identification_number, :receiver_mobile_phone_number
+
+  secure_column :placer,   fields: [ :placer_name,   :placer_address,   :placer_identification_number,   :placer_mobile_phone_number   ]
+  secure_column :taker,    fields: [ :taker_name,    :taker_address,    :taker_identification_number,    :taker_mobile_phone_number    ]
+  secure_column :receiver, fields: [ :receiver_name, :receiver_address, :receiver_identification_number, :receiver_mobile_phone_number ]
+
+end
+
+# in any controller or rails console:
+@placer_name   = 'Tim'
+@taker_name    = 'Bob'
+@receiver_name = 'Roy'
+
+@placer_identification_number   = '11022119801231999X'
+@taker_identification_number    = '350105199006184567'
+@receiver_identification_number = '532307200001010003'
+
+@placer_mobile_phone_number   = '13987654321'
+@taker_mobile_phone_number    = '18812345678'
+@receiver_mobile_phone_number = '17101020304'
+
+@placer_address   = 'Beijing'
+@taker_address    = 'Jiangsu'
+@receiver_address = 'Guizhou'
+
+@ordering = Ordering.new opened_at: Time.now,
+  placer_name:      @placer_name,
+  taker_name:       @taker_name,
+  receiver_name:    @receiver_name,
+  placer_address:   @placer_address,
+  taker_address:    @taker_address,
+  receiver_address: @receiver_address,
+  placer_identification_number:   @placer_identification_number,
+  taker_identification_number:    @taker_identification_number,
+  receiver_identification_number: @receiver_identification_number,
+  placer_mobile_phone_number:     @placer_mobile_phone_number,
+  taker_mobile_phone_number:      @taker_mobile_phone_number,
+  receiver_mobile_phone_number:   @receiver_mobile_phone_number
+@ordering.save!
+
+ordering_1 = Ordering.placer_identification_number_is(@placer_identification_number).valid_at.alive.first
+ordering_2 = Ordering.taker_identification_number_is(@taker_identification_number).valid_at.alive.first
+ordering_3 = Ordering.receiver_identification_number_is(@receiver_identification_number).valid_at.alive.first
+ordering_4 = Ordering.placer_mobile_phone_number_is(@placer_mobile_phone_number).valid_at.alive.first
+ordering_5 = Ordering.taker_mobile_phone_number_is(@taker_mobile_phone_number).valid_at.alive.first
+ordering_6 = Ordering.receiver_mobile_phone_number_is(@receiver_mobile_phone_number).valid_at.alive.first
+# @ordering should be identical to any of ordering_1, ordering_2, ordering_3, ordering_4, ordering_5, or ordering_6
+```
+
+
+
 ## Numeration
 
 ```ruby

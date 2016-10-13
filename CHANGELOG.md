@@ -63,3 +63,10 @@
 
 ## v1.5
 1. Improve the Model Extension concern to support the Exact Column specification
+
+## v1.6
+1. Secure Column concern
+2. Exact Column concern
+3. Argument Validation concern
+4. Notation Column concern
+5. Improve the Model Extension concern to include the Argument Validation concern, the Exact Column concern, the Notation Column concern, & the Secure Column concern
