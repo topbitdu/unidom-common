@@ -28,6 +28,10 @@ module Unidom::Common::Concerns::Aes256Cryptor
 
   module ClassMethods
 
+    def algorithm
+      'AES-256-CBC'
+    end
+
     def encrypt(message, key: nil)
 
       raise ArgumentError.new('The message argument is required.') if message.blank?
