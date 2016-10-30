@@ -2,6 +2,8 @@ require 'unidom/common/engine'
 
 require 'unidom/common/numeration'
 
+require 'unidom/common/yaml_helper'
+
 module Unidom
   module Common
 
