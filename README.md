@@ -56,6 +56,9 @@ class Project < ActiveRecord::Base
   belongs_to :team
   belongs_to :place
 
+  code :software_process, SoftwareProcess
+  # SoftwareProcess is a enum type per ProgneTapera
+
   # other fields: code, description
 
   def kick_off(in: nil)
