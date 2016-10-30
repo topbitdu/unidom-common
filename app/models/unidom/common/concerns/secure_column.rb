@@ -34,15 +34,15 @@ module Unidom::Common::Concerns::SecureColumn
           json = {
               encoded:   encoded,
               signature: Unidom::Common::Numeration.hex(self.class.exact_signature self.class, name, content),
-              algorithm: self.class.algorithm
+              encryption_algorithm: self.class.encryption_algorithm
             }
           send "#{name}=", json
         end
 
         after_find do
           json = send(name)
-          return if json['encoded'].blank?||json['signature'].blank?||json['algorithm'].blank?
-          return if self.class.algorithm!=json['algorithm']
+          return if json['encoded'].blank?||json['signature'].blank?||json['encryption_algorithm'].blank?
+          return if self.class.encryption_algorithm!=json['encryption_algorithm']
           aes_key = Digest::SHA512::digest self.class.exact_signature(self.class, name, '')
           content = decrypt Unidom::Common::Numeration.rev_hex(json['encoded']), key: aes_key
           actual_signature = self.class.exact_signature(self.class, name, content)
