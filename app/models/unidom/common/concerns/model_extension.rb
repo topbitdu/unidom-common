@@ -4,7 +4,6 @@ module Unidom::Common::Concerns::ModelExtension
 
   include Unidom::Common::Concerns::ArgumentValidation
   include Unidom::Common::Concerns::NotationColumn
-  include Unidom::Common::Concerns::ExactColumn
   include Unidom::Common::Concerns::SecureColumn
 
   included do |includer|
@@ -90,8 +89,8 @@ module Unidom::Common::Concerns::ModelExtension
           else
             validates name.to_sym, presence: true, length: { maximum: columns_hash[name].limit }
           end
-          scope "#{name}d_as".to_sym,     ->(code) { where     name => code }
-          scope "not_#{name}d_as".to_sym, ->(code) { where.not name => code }
+          scope "#{name}d_as".to_sym,     ->(code) { where     name => to_code(code) }
+          scope "not_#{name}d_as".to_sym, ->(code) { where.not name => to_code(code) }
           scope "#{name}_starting_with".to_sym, ->(prefix) { where "#{name} LIKE :prefix", prefix: "#{prefix}%" }
           scope "#{name}_ending_with".to_sym,   ->(suffix) { where "#{name} LIKE :suffix", suffix: "%#{suffix}" }
         end
@@ -156,6 +155,11 @@ module Unidom::Common::Concerns::ModelExtension
     def to_id(model)
       model.respond_to?(:id) ? model.id : model
     end
+
+    def to_code(code)
+      code.respond_to?(:code) ? code.code : code
+    end
+
 =begin
     def notation_column(*names)
       names.each do |name|
