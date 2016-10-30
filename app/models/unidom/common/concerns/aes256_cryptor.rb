@@ -28,7 +28,7 @@ module Unidom::Common::Concerns::Aes256Cryptor
 
   module ClassMethods
 
-    def algorithm
+    def encryption_algorithm
       'AES-256-CBC'
     end
 
