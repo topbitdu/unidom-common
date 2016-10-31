@@ -62,7 +62,7 @@
 1. Improved the Model Extension concern to add the #assert_present! & the .assert_present! method
 
 ## v1.5
-1. Improve the Model Extension concern to support the Exact Column specification
+1. Improved the Model Extension concern to support the Exact Column specification
 
 ## v1.6
 1. Secure Column concern
