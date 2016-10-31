@@ -56,7 +56,7 @@
 1. SHA 1 Digester concern
 2. SHA 2 Digester concern
 3. Improved the Model Extension to generate the validations for the #{action}_state field automatically
-4. Improve the AES 256 Cryptor concern for the class methods
+4. Improved the AES 256 Cryptor concern for the class methods
 
 ## v1.4
 1. Improve the Model Extension concern to add the #assert_present! & the .assert_present! method
