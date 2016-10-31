@@ -72,6 +72,6 @@
 5. Improved the Model Extension concern to include the Argument Validation concern, the Exact Column concern, the Notation Column concern, & the Secure Column concern
 
 ## v1.7
-1. Improve the Model Extension concern to support the Progne Tapera enum for the code fields
+1. Improved the Model Extension concern to support the Progne Tapera enum for the code fields
 2. Improve the Secure Column concern to add the encryption algorithm
 3. YAML helper module
