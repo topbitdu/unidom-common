@@ -56,8 +56,9 @@ class Project < ActiveRecord::Base
   belongs_to :team
   belongs_to :place
 
-  code :software_process, SoftwareProcess
-  # SoftwareProcess is a enum type per ProgneTapera
+  code :process, Process
+  # Process is a enum type per ProgneTapera,
+  # the typical values are: waterfall, agile, lean, scrum, extreme_programming, and etc.
 
   # other fields: code, description
 
