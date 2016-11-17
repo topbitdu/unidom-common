@@ -791,6 +791,7 @@ hex_digested == Unidom::Common::Numeration.hex digested # true
 The YMM part should be identical to the relative part of the Domain Models.
 The NNN is the numeric code of [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1 "codes for the names of countries, dependent territories, and special areas of geographical interest").
 The numeric code of China is 156.
+* unidom-party-china:       2001019156MMSS
 * unidom-certificate-china: 2001029156MMSS
 * unidom-contact-china:     2001039156MMSS
 * unidom-geo-china:         2001049156MMSS
