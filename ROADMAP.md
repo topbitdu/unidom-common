@@ -1,7 +1,7 @@
 # Unidom Common Roadmap 常用领域模型引擎路线图
 
 ## v0.1
-1. Enable PostgreSQL UUID Extension
+1. Enable PostgreSQL UUID Extension migration (20000101000000)
 
 ## v0.2
 1. Model Extension concern
