@@ -14,7 +14,7 @@
 4. Added the Unidom::Common::SELF constant
 
 ## v0.4
-1. Improve the Model Extension to add the .to_id method
+1. Improve the Model Extension to add the .``to_id`` method
 
 ## v0.5
 1. Supported the No-SQL columns in the Model Extension
