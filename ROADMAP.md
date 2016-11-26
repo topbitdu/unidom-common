@@ -78,3 +78,4 @@
 
 ## v1.7.1
 1. Improve the Secure Column concern for the .``exact_signature`` method
+2. Improve the Ruby Gem Specification to depend on [progne_tapera](https://github.com/topbitdu/progne_tapera) v0.3
