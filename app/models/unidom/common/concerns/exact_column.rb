@@ -25,8 +25,9 @@ module Unidom::Common::Concerns::ExactColumn
 
     end
 
-    def exact_signature(klass, name, value)
-      text = "#{Rails.application.secrets[:secret_key_base]}@#{Rails.root}/#{klass.table_name}##{name}=#{value}"
+    def exact_signature(klass, name, value, secret_key_base: Rails.application.secrets[:secret_key_base])
+      text = "#{secret_key_base}/#{klass.table_name}##{name}=#{value}"
+      #text = "#{Rails.application.secrets[:secret_key_base]}@#{Rails.root}/#{klass.table_name}##{name}=#{value}"
       "#{Digest::MD5.digest(text)}#{Digest::SHA512.digest(text)}"
     end
 
