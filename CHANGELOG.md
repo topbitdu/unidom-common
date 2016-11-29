@@ -75,3 +75,7 @@
 1. Improved the Model Extension concern to support the Progne Tapera enum for the code fields
 2. Improved the Secure Column concern to add the encryption algorithm
 3. YAML helper module
+
+## v1.7.1
+1. Improve the Secure Column concern for the .``exact_signature`` method
+2. Improve the Ruby Gem Specification to depend on [progne_tapera](https://github.com/topbitdu/progne_tapera) v0.4
