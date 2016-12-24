@@ -11,7 +11,7 @@
 1. Improved the Data Helper module
 2. Improved the Model Extension concern
 3. Improved the Common module to add the NULL_UUID constant as: ``00000000-0000-0000-0000-000000000000``
-4. Added the Unidom::Common::SELF constant
+4. Improved the Common module to add the SELF constant as: ``~``
 
 ## v0.4
 1. Improved the Model Extension to add the .``to_id`` method
