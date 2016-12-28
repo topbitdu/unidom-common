@@ -82,3 +82,6 @@
 
 ## v1.7.2
 1. Improve the Secure Column concern for the un-selected secure columns
+
+## v1.8
+1. Engine Extension concern

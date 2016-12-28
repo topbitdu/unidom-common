@@ -519,6 +519,19 @@ hex_digested == Unidom::Common::Numeration.hex digested # true
 
 
 
+## Engine Extension concern
+
+```ruby
+module EngineName
+  class Engine < ::Rails::Engine
+    include Unidom::Common::EngineExtension
+    enable_initializer enum_enabled: true, migration_enabled: true
+  end
+end
+```
+
+
+
 ## ActiveRecord Migration Naming Convention
 
 ### Domain Models (200YMMDDHHMMSS)
