@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    unidom-common (1.7.2)
+    unidom-common (1.8)
       pg (~> 0)
       progne_tapera (>= 0.4)
       rails (>= 4.2)
