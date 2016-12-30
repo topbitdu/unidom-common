@@ -9,7 +9,7 @@
 
 ## v0.3
 1. Improve the Data Helper module
-2. Improved the Model Extension concern
+2. Improve the Model Extension concern
 3. Improve the Common module to add the NULL_UUID constant as: ``00000000-0000-0000-0000-000000000000``
 4. Improve the Common module to add the SELF constant as: ``~``
 
