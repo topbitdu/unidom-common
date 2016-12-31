@@ -85,3 +85,6 @@
 
 ## v1.8
 1. Engine Extension concern
+
+## v1.8.1
+1. Improve the Model Extension concern for the validations for the #ordinal attribute, the #grade attribute, & the #priority attribute
