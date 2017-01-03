@@ -1,3 +1,7 @@
+##
+# Engine Extension 是为 Rails 引擎提供的扩展关注点。
+# .enable_initializer 方法简化了知识层枚举和数据库迁移脚本的加载。
+
 module Unidom::Common::EngineExtension
 
   extend ActiveSupport::Concern
