@@ -1,3 +1,6 @@
+##
+# Numeration 是数字格式转换的辅助类。
+
 class Unidom::Common::Numeration
 
   def self.hex(data)
