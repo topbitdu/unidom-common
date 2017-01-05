@@ -1,3 +1,6 @@
+##
+# YAML Helper 是用于加载知识层枚举的配置文件的辅助模块。
+
 module Unidom::Common::YamlHelper
 
   def self.load_enum(config: nil, root: nil)
