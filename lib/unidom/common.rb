@@ -1,9 +1,7 @@
 require 'unidom/common/engine'
 
 require 'unidom/common/numeration'
-
 require 'unidom/common/yaml_helper'
-
 require 'unidom/common/engine_extension'
 
 module Unidom
