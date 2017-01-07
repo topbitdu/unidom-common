@@ -1,3 +1,6 @@
+##
+# AES 256 Cryptor 是基于 AES-256-CBC 算法的加密和解密逻辑关注点。
+
 module Unidom::Common::Concerns::Aes256Cryptor
 
   extend ActiveSupport::Concern
