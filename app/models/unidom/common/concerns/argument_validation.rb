@@ -1,3 +1,6 @@
+##
+# Argument Validation 是参数验证逻辑的关注点。
+
 module Unidom::Common::Concerns::ArgumentValidation
 
   extend ActiveSupport::Concern
