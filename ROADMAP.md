@@ -27,7 +27,7 @@
 2. Improve the Model Extension concern to add the #notation_column_where scope
 
 ## v0.7
-1. Improved the Model Extension concern to generate the {action}_transited_to scope for the #{action}_state field automatically
+1. Improve the Model Extension concern to generate the {action}_transited_to scope for the #{action}_state field automatically
 
 ## v0.8
 1. Improved the Model Extension concern to add the .``notation_boolean_column`` method
