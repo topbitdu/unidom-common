@@ -88,3 +88,7 @@
 
 ## v1.8.1
 1. Improve the Model Extension concern for the validations for the #ordinal attribute, the #grade attribute, & the #priority attribute
+
+## v1.9
+1. Neglection class
+2. Improve the Model Extension concern to integrate the Neglection class
