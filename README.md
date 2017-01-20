@@ -810,3 +810,22 @@ The numeric code of China is 156.
 * unidom-certificate-china: 2001029156MMSS
 * unidom-contact-china:     2001039156MMSS
 * unidom-geo-china:         2001049156MMSS
+
+
+
+## Configuration
+
+unidom-common and its relative Ruby gems are configurable. Create your own ``config/initializers/unidom.rb`` file in your project as following:
+```ruby
+Unidom::Common.configure do |options|
+
+  # The migrations inside the following namespaces will be ignored. The models inside the following namespaces won't be defined.
+  options[:neglected_namespaces] = %w{
+    Unidom::Party
+    Unidom::Visitor
+  }
+
+end
+```
+The Unidom::Party::Person, the Unidom::Visitor::User, and other models under the listed namespaces won't be defined. Their migrations won't run.
+But the models under the Unidom::Party::China namespace, if there is any, are defined, and their migrations will run as usual.
