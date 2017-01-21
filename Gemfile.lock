@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    unidom-common (1.8.1)
+    unidom-common (1.9)
       pg (~> 0)
       progne_tapera (>= 0.4)
       rails (>= 4.2)
@@ -47,7 +47,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
-    builder (3.2.2)
+    builder (3.2.3)
     concurrent-ruby (1.0.4)
     erubis (2.7.0)
     globalid (0.3.7)
