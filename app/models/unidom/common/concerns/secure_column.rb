@@ -27,7 +27,7 @@ module Unidom::Common::Concerns::SecureColumn
       name = name.to_sym
       return unless respond_to? name
       json = send(name)
-      return if json['encoded'].blank?||json['signature'].blank?||json['encryption_algorithm'].blank?
+      return if json.blank?||json['encoded'].blank?||json['signature'].blank?||json['encryption_algorithm'].blank?
       return if self.class.encryption_algorithm!=json['encryption_algorithm']
       aes_key = Digest::SHA512::digest self.class.exact_signature(self.class, name, '')
       content = decrypt Unidom::Common::Numeration.rev_hex(json['encoded']), key: aes_key
