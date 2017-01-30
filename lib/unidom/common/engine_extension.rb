@@ -11,6 +11,11 @@ module Unidom::Common::EngineExtension
 
   module ClassMethods
 
+    ##
+    # 设置初始化器的开关。如:
+    # Unidom::Common::EngineExtension.enable_initializer enum_enabled: true, migration_enabled: false
+    # enum_enabled 表明是否加载枚举型。
+    # migration_enabled 表明是否运行领域模型数据库迁移脚本，同时也表明加载对应的领域模型。
     def enable_initializer(enum_enabled: false, migration_enabled: false)
 
       if enum_enabled
