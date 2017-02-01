@@ -3,6 +3,8 @@
 
 module Unidom::Common::YamlHelper
 
+  ##
+  # 从应用或者引擎的跟路径 root 加载 config/enum.yml 中的内容到 config 中。
   def self.load_enum(config: nil, root: nil)
 
     enum_yaml_path = root.join 'config', 'enum.yml'
