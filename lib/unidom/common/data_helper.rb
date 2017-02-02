@@ -5,6 +5,11 @@ module Unidom
 
     module DataHelper
 
+      ##
+      # 以 CSV 的格式加载 file_name 对应的文件，利用闭包遍历每一行。如：
+      # Unidom::Common::DataHelper.each_csv_row '/var/file.csv' do |line|
+      #   puts line.inspect
+      # end
       def each_csv_row(file_name, &block)
 
         started_at = Time.now
