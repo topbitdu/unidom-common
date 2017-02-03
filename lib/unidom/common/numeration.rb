@@ -3,6 +3,9 @@
 
 class Unidom::Common::Numeration
 
+  ##
+  # 将二进制数据转换成 16 进制的表达。如：
+  # Unidom::Common::Numeration.hex [ 'A', '}' ]
   def self.hex(data)
     data.present? ? data.unpack('H*')[0] : nil
   end
