@@ -81,7 +81,7 @@
 2. Improved the Ruby Gem Specification to depend on [progne_tapera](https://github.com/topbitdu/progne_tapera) v0.4
 
 ## v1.7.2
-1. Improve the Secure Column concern for the un-selected secure columns
+1. Improved the Secure Column concern for the un-selected secure columns
 
 ## v1.8
 1. Engine Extension concern
