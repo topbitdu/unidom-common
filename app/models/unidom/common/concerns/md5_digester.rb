@@ -1,3 +1,6 @@
+##
+# MD-5 Digester 基于 MD-5 算法的摘要逻辑关注点。
+
 module Unidom::Common::Concerns::Md5Digester
 
   extend ActiveSupport::Concern
