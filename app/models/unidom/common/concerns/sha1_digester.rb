@@ -1,3 +1,6 @@
+##
+# SHA-1 Digester 基于 SHA-1 算法的摘要逻辑关注点。
+
 module Unidom::Common::Concerns::Sha1Digester
 
   extend ActiveSupport::Concern
