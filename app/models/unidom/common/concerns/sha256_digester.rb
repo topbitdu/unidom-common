@@ -1,3 +1,6 @@
+##
+# SHA-256 Digester 基于 SHA-256 算法的摘要逻辑关注点。
+
 module Unidom::Common::Concerns::Sha256Digester
 
   extend ActiveSupport::Concern
