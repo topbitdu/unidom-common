@@ -1,3 +1,6 @@
+##
+# SHA-384 Digester 基于 SHA-384 算法的摘要逻辑关注点。
+
 module Unidom::Common::Concerns::Sha384Digester
 
   extend ActiveSupport::Concern
