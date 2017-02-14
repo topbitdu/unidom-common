@@ -1,3 +1,6 @@
+##
+# SHA-512 Digester 基于 SHA-512 算法的摘要逻辑关注点。
+
 module Unidom::Common::Concerns::Sha512Digester
 
   extend ActiveSupport::Concern
