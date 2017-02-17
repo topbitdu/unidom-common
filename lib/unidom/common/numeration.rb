@@ -10,6 +10,9 @@ class Unidom::Common::Numeration
     data.present? ? data.unpack('H*')[0] : nil
   end
 
+  ##
+  # 将十六进制数的表达字符串，转换成二进制数据。如：
+  # Unidom::Common::Numeration.rev_hex '6CA0'
   def self.rev_hex(hex)
     hex.present? ? hex.scan(/../).map(&:hex).pack('c*') : nil
   end
