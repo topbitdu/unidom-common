@@ -95,3 +95,6 @@
 
 ## v1.9.1
 1. Improve the Neglection class in case of lack of configuration
+
+## v1.9.2
+1. Improve the Neglection class in case of lack of configuration
