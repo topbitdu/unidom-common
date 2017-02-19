@@ -13,7 +13,7 @@ class Unidom::Common::Neglection
   #   Namespace::ClassName
   # }
   def self.namespace_neglected?(class_name)
-    neglected_namespaces = Unidom::Common.options[:neglected_namespaces]
+    neglected_namespaces = Unidom::Common.try(:options).try(:[], :neglected_namespaces)
     neglected_namespaces.present? ? neglected_namespaces.include?(class_name.to_s.deconstantize) : false
   end
 
