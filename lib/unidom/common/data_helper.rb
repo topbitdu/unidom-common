@@ -26,6 +26,11 @@ module Unidom
 
       end
 
+      ##
+      # 根据日期文本 date_text 解析出时间，如果日期文本为空，则返回指定的时间或当前时间。如：
+      # Unidom::Common::DataHelper.parse_time '2000-01-01'           # 2000-01-01 00:00:00
+      # Unidom::Common::DataHelper.parse_time ''                     # Time.now
+      # Unidom::Common::DataHelper.parse_time nil, Time.now-1.minute # Time.now-1.minute
       def parse_time(date_text, default = Time.now)
         return default if date_text.blank?
         date = Date.parse date_text
