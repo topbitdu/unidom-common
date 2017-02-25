@@ -17,7 +17,7 @@
 1. Improved the Model Extension to add the .``to_id`` method
 
 ## v0.5
-1. Improve the Model Extension to support the No-SQL columns
+1. Improved the Model Extension to support the No-SQL columns
 
 ## v0.5.1
 1. Fixed the issue of No-SQL columns reader methods
