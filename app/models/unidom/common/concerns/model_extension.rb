@@ -142,12 +142,6 @@ module Unidom::Common::Concerns::ModelExtension
       end
     end
 
-=begin
-    def assert_present!(name, value)
-      raise ArgumentError.new("The #{name} argument is required.") if value.blank?
-    end
-=end
-
   end
 
   module ClassMethods
