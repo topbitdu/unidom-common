@@ -21,17 +21,6 @@ module Unidom::Common::Concerns::ModelExtension
     scope :alive, ->(living:  true) { where defunct: !living }
     scope :dead,  ->(defunct: true) { where defunct: defunct }
 
-=begin
-    scope :notation_column_where, ->(name, operator, value) do
-      operation = :like==operator ? { operator: 'ILIKE', value: "%#{value}%" } : { operator: operator.to_s, value: value }
-      where "#{table_name}.notation -> 'columns' ->> '#{name}' #{operation[:operator]} :value", value: operation[:value]
-    end
-
-    scope :notation_boolean_column_where, ->(name, value) do
-      where "(#{table_name}.notation -> 'columns' ->> '#{name}')::boolean = :value", value: (value ? true : false)
-    end
-=end
-
     if columns_hash['ordinal'].present?&&:integer==columns_hash['ordinal'].type
       validates :ordinal, presence: true, numericality: { only_integer: true, greater_than: 0 }
       scope :ordinal_is, ->(ordinal) { where ordinal: ordinal }
