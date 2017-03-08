@@ -18,6 +18,17 @@ module Unidom
 
     mattr_accessor :options
 
+    ##
+    # 对 Unidom 的各个模块进行配置。如：
+    # Unidom::Common.configure do |options|
+    #
+    #   # neglected_namespaces 列出的命名空间对应的 migration 不会被执行， model 也不会被加载。
+    #   # 但 concern 、 validator 、 type 、 helper 、 controller 、 view 等都可以正常使用。
+    #   options[:neglected_namespaces] = %w{
+    #     Unidom::Action
+    #   }
+    #
+    # end
     def self.configure
 
       options = {}
