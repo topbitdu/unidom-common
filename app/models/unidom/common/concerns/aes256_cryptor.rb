@@ -16,6 +16,11 @@ module Unidom::Common::Concerns::Aes256Cryptor
       self.class.encrypt message, key: key
     end
 
+    ##
+    # 将密文 encoded 用秘钥 key 进行解密。如：
+    # decrypt encoded
+    # 或
+    # decrypt encoded, key: aes256_key
     def decrypt(encoded, key: nil)
       self.class.decrypt encoded, key: key
     end
