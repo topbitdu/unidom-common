@@ -7,14 +7,15 @@ require 'unidom/common/engine_extension'
 module Unidom
   module Common
 
-    NULL_UUID = '00000000-0000-0000-0000-000000000000'.freeze
-    SELF      = '~'.freeze
+    NULL_UUID      = '00000000-0000-0000-0000-000000000000'.freeze
+    MAXIMUM_AMOUNT = 1_000_000_000.freeze
+    SELF           = '~'.freeze
 
-    #OPENED_AT = Time.utc(1970).freeze
-    #CLOSED_AT = Time.utc(3000).freeze
+    OPENED_AT = Time.utc(1970).freeze
+    CLOSED_AT = Time.utc(3000).freeze
 
-    #FROM_DATE = '1970-01-01'.freeze
-    #THRU_DATE = '3000-01-01'.freeze
+    FROM_DATE = '1970-01-01'.freeze
+    THRU_DATE = '3000-01-01'.freeze
 
     mattr_accessor :options
 
