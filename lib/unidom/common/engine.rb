@@ -5,12 +5,6 @@ module Unidom
 
       config.autoload_paths += %W(
         #{config.root}/lib
-        #{config.root}/app/models/unidom/common/concerns
-      )
-
-      config.eager_load_paths += %W(
-        #{config.root}/lib
-        #{config.root}/app/models/unidom/common/concerns
       )
 
       isolate_namespace ::Unidom::Common
