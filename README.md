@@ -44,6 +44,21 @@ include Unidom::Common::Concerns::ModelExtension
 
 
 
+## Constants
+
+```ruby
+Unidom::Common::NULL_UUID      # '00000000-0000-0000-0000-000000000000'
+Unidom::Common::MAXIMUM_AMOUNT # 1_000_000_000
+Unidom::Common::SELF           # '~'
+
+Unidom::Common::OPENED_AT # Time.utc(1970)
+Unidom::Common::CLOSED_AT # Time.utc(3000)
+
+Unidom::Common::FROM_DATE # '1970-01-01'
+Unidom::Common::THRU_DATE # '3000-01-01'
+
+```
+
 ## Model Extension concern
 
 ```ruby

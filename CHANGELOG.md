@@ -99,3 +99,10 @@
 
 ## v1.9.2
 1. Improve the Neglection class in case of lack of configuration
+
+## v1.10
+1. Improve the Common module to add the OPENED_AT constant as: ``Time.utc(1970)``
+2. Improve the Common module to add the CLOSED_AT constant as: ``Time.utc(3000)``
+3. Improve the Common module to add the FROM_DATE constant as: ``'1970-01-01'``
+4. Improve the Common module to add the THRU_DATE constant as: ``'3000-01-01'``
+5. Improve the Common module to add the MAXIMUM_AMOUNT constant as: ``1_000_000_000``
