@@ -39,6 +39,16 @@ module Unidom::Common::Concerns::Sha2Digester
 
   module ClassMethods
 
+    ##
+    # 对明文 message 进行 SHA-2 摘要， pepper 是用于增加混乱的内容。如：
+    # class SomeModel
+    #   include Unidom::Common::Concerns::Sha2Digester
+    #   def self.some_method(param_1)
+    #     digest param_1
+    #     # 或者
+    #     digest param_1, pepper: 'my_pepper'
+    #   end
+    # end
     def digest(message, pepper: nil)
       message.present? ? Digest::SHA2.digest("#{message}_#{Rails.application.secrets[:secret_key_base]}_#{pepper}") : nil
     end
