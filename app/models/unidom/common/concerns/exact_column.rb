@@ -10,6 +10,12 @@ module Unidom::Common::Concerns::ExactColumn
 
   module ClassMethods
 
+    ##
+    # 配置精确索引列。如：
+    # class SomeModel
+    #   include Unidom::Common::Concerns::ExactColumn
+    #   exact_column :phone_number, :identification_number
+    # end
     def exact_column(*names)
 
       exact_column_names = exact_column_names||[]
