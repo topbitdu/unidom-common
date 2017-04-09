@@ -17,6 +17,9 @@ module Unidom::Common::Concerns::NotationColumn
 
   module ClassMethods
 
+    ##
+    # 定义 JSON 类型的列。如：
+    # notation_column :given_name, :family_name
     def notation_column(*names)
       names.each do |name|
         name = name.to_s
