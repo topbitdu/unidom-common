@@ -135,6 +135,10 @@ module Unidom::Common::Concerns::ModelExtension
 
   module ClassMethods
 
+    ##
+    # 将模型对象或者 ID 转换成 ID 。如：
+    # to_id(person)    # person.id
+    # to_id(person.id) # person.id
     def to_id(model)
       model.respond_to?(:id) ? model.id : model
     end
