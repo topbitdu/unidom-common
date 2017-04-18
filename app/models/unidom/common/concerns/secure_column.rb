@@ -41,6 +41,22 @@ module Unidom::Common::Concerns::SecureColumn
 
   module ClassMethods
 
+    ##
+    # 配置加密列。如：
+    # class YourModel < ApplicationRecord
+    #   attr_accessor :identity_card_name, :identity_card_address, :passport_name, :passport_address
+    #   include Unidom::Common::Concerns::SecureColumn
+    #   secure_column :secure_identity_card, fields: [ :identity_card_name, :identity_card_address ]
+    #   secure_column :secure_passport,      fields: [ :passport_name, :passport_address ]
+    # end
+    #
+    # model = YourModel.create! identity_card_name: '张三', identity_card_address: '地址1',
+    #   passport_name: '李四', passport_address: '地址2'
+    # #identity_card_name 和 #identity_card_address 会被加密后保存到 #secure_identity_card 字段中。
+    # #passport_name 和 #passport_address 会被加密后保存到 #secure_passport 字段中。
+    # model_2 = YourModel.find model.id
+    # model_2.identity_card_name # 张三
+    # #secure_identity_card 中存储的加密信息会被自动解密，并存储到 #identity_card_name 和 #identity_card_address 中。
     def secure_column(name, fields: [])
 
       name                = name.to_s
