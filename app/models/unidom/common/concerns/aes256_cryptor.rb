@@ -55,6 +55,11 @@ module Unidom::Common::Concerns::Aes256Cryptor
       'AES-256-CBC'
     end
 
+    ##
+    # 将明文 message 用秘钥 key 进行加密。如：
+    # encrypt 'clear text'
+    # 或
+    # encrypt 'clear text', key: aes256_key
     def encrypt(message, key: nil)
 
       raise ArgumentError.new('The message argument is required.') if message.blank?
