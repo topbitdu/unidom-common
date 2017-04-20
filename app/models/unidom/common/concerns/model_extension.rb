@@ -115,6 +115,10 @@ module Unidom::Common::Concerns::ModelExtension
       #relation
     end
 
+    ##
+    # 对当前对象进行软删除。软删除之后， #closed_at 会被置为当前时间， #defunct 会被置为 false 。并且对象会被自动保存。如：
+    # model = YourModel.find your_id
+    # model.soft_destroy
     def soft_destroy
       self.closed_at = Time.now
       self.defunct = true
