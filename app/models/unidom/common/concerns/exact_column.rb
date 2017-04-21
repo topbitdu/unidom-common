@@ -31,6 +31,8 @@ module Unidom::Common::Concerns::ExactColumn
 
     end
 
+    ##
+    # 计算精确索引列的值。此方法被 exact_column 方法调用。
     def exact_signature(klass, name, value, secret_key_base: Rails.application.secrets[:secret_key_base])
       text = "#{secret_key_base}/#{klass.table_name}##{name}=#{value}"
       #text = "#{Rails.application.secrets[:secret_key_base]}@#{Rails.root}/#{klass.table_name}##{name}=#{value}"
