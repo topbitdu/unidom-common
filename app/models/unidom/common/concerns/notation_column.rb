@@ -35,6 +35,17 @@ module Unidom::Common::Concerns::NotationColumn
       end
     end
 
+    ##
+    # 定义标注字段的 boolean 型的列。如：
+    # class YourModel < ApplicationRecord
+    #   include Unidom::Common::Concerns::NotationColumn
+    #   notation_boolean_column :still_alive
+    # end
+    # 则为 YourModel 的实例生成2个方法：still_alive? 和 still_alive=。
+    # model = YourModel.new still_alive: true
+    # model.still_alive? # true
+    # model.still_alive = false
+    # model.still_alive? # false
     def notation_boolean_column(*names)
       names.each do |name|
         name = name.to_s
