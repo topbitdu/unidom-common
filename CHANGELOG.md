@@ -91,7 +91,7 @@
 
 ## v1.9
 1. Neglection class
-2. Improve the Model Extension concern to integrate the Neglection class
+2. Improved the Model Extension concern to integrate the Neglection class
 
 ## v1.9.1
 1. Improve the Neglection class in case of lack of configuration
