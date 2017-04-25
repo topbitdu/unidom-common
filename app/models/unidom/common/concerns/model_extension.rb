@@ -1,3 +1,6 @@
+##
+# Model Extension 是通用的模型扩展关注点，提供参数验证、JSON 注解字段、加密字段等。
+
 module Unidom::Common::Concerns::ModelExtension
 
   extend ActiveSupport::Concern
