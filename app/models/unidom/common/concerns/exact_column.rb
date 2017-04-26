@@ -1,3 +1,6 @@
+##
+# Exact Column 为加密数据提供摘要索引。
+
 module Unidom::Common::Concerns::ExactColumn
 
   extend ActiveSupport::Concern
