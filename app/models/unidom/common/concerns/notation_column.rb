@@ -1,3 +1,6 @@
+##
+# Notation Column 提供定义 JSON 注解列的方法。
+
 module Unidom::Common::Concerns::NotationColumn
 
   extend ActiveSupport::Concern
