@@ -72,6 +72,9 @@ module Unidom::Common::Concerns::Aes256Cryptor
 
     end
 
+    ##
+    # 将密文 encoded 用秘钥 key 进行解密。如：
+    # decrypt encoded, key: aes256_key
     def decrypt(encoded, key: nil)
 
       raise ArgumentError.new('The encoded argument is required.') if encoded.blank?
