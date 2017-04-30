@@ -1,3 +1,5 @@
+##
+# Secure Column 提供定义加密列的方法。
 module Unidom::Common::Concerns::SecureColumn
 
   extend  ActiveSupport::Concern
