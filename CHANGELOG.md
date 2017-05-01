@@ -94,7 +94,7 @@
 2. Improved the Model Extension concern to integrate the Neglection class
 
 ## v1.9.1
-1. Improve the Neglection class in case of lack of configuration
+1. Improved the Neglection class in case of lack of configuration
 2. Improve the Secure Column concern for the null encrypted JSON column
 
 ## v1.9.2
