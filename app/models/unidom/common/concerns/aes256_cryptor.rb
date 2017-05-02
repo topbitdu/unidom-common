@@ -93,6 +93,9 @@ module Unidom::Common::Concerns::Aes256Cryptor
       respond_to?(:cryption_padding) ? cryption_padding : 9
     end
 
+    ##
+    # 将明文 message 用秘钥 key 进行加密，并转换成16进制表达。如：
+    # self.hex_encrypt 'clear text', key: aes256_key
     def hex_encrypt(message, key: nil)
       Unidom::Common::Numeration.hex encrypt(message, key: key)
     end
