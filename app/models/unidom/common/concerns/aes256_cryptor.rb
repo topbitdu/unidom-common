@@ -29,8 +29,6 @@ module Unidom::Common::Concerns::Aes256Cryptor
 
     ##
     # 将明文 message 用秘钥 key 进行加密，并转换成16进制表达。如：
-    # hex_encrypt 'clear text'
-    # 或
     # hex_encrypt 'clear text', key: aes256_key
     def hex_encrypt(message, key: nil)
       self.class.hex_encrypt message, key: key
