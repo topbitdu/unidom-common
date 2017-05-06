@@ -105,3 +105,6 @@
 3. Improve the Common module to add the FROM_DATE constant as: ``'1970-01-01'``
 4. Improve the Common module to add the THRU_DATE constant as: ``'3000-01-01'``
 5. Improve the Common module to add the MAXIMUM_AMOUNT constant as: ``1_000_000_000``
+
+## v1.11
+1. Enable PostgreSQL Pgcrypto Extension migration (20000101000010)
