@@ -24,7 +24,7 @@
 
 ## v0.6
 1. Improved the Model Extension concern to generate the {acted}_before, {acted}_not_after, {acted}_after, and {acted}_not_before scopes for the {acted}_at date time field automatically
-2. Improved the Model Extension concern to add the #notation_column_where scope
+2. Improved the Model Extension concern to add the ``notation_column_where`` scope
 
 ## v0.7
 1. Improved the Model Extension concern to generate the {action}_transited_to scope for the #{action}_state field automatically
