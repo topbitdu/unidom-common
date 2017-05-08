@@ -150,6 +150,10 @@ module Unidom::Common::Concerns::ModelExtension
       model.respond_to?(:id) ? model.id : model
     end
 
+    ##
+    # 将模型对象或者 code 转换成 code 。如：
+    # to_id(category)      # category.id
+    # to_id(category.code) # category.id
     def to_code(code)
       code.respond_to?(:code) ? code.code : code
     end
