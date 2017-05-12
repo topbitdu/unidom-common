@@ -17,6 +17,8 @@ module Unidom
     FROM_DATE = '1970-01-01'.freeze
     THRU_DATE = '3000-01-01'.freeze
 
+    STATE = 'C'.freeze
+
     mattr_accessor :options
 
     ##
