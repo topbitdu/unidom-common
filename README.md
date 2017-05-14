@@ -32,7 +32,7 @@ gem 'unidom-common'
 rake db:migrate
 ```
 The migration versions starts with 200001.
-The migration enabled the PostgreSQL uuid-ossp extension.
+The migrations enabled the PostgreSQL uuid-ossp extension and the pgcrypto extension.
 
 
 
