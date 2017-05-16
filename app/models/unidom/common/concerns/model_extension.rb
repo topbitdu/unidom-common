@@ -128,6 +128,8 @@ module Unidom::Common::Concerns::ModelExtension
       self.save
     end
 
+    ##
+    # 生成当前对象的 slug 。如果有 #name 属性，则用 #name 属性的值生成；否则用 #title 属性的值生成；最后采用随机 UUID 生成。
     def build_slug
       if respond_to? :name
         name
