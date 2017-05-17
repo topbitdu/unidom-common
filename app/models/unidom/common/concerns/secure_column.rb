@@ -10,6 +10,9 @@ module Unidom::Common::Concerns::SecureColumn
 
     cattr_accessor :secure_columns
 
+    ##
+    # 对指定的安全列进行加密操作。如：
+    # do_encrypt_secure_column :secure_identity_card
     def do_encrypt_secure_column(name)
       name    = name.to_s
       content = { 'nonce' => SecureRandom.hex(8), 'timestamp' => Time.now.to_i }
