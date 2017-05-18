@@ -87,6 +87,8 @@ module Unidom::Common::Concerns::Aes256Cryptor
 
     end
 
+    ##
+    # 返回 AES-256 加密使用的 padding 。如果有 #cryption_padding 方法，则返回 #cryption_padding 方法的值，否则返回 9 。
     def aes_256_padding
       respond_to?(:cryption_padding) ? cryption_padding : 9
     end
