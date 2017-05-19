@@ -9,8 +9,6 @@ module Unidom::Common::Concerns::Aes256Cryptor
 
     ##
     # 将明文 message 用秘钥 key 进行加密。如：
-    # encrypt 'clear text'
-    # 或
     # encrypt 'clear text', key: aes256_key
     def encrypt(message, key: nil)
       self.class.encrypt message, key: key
