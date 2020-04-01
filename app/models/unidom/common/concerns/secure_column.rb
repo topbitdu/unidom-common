@@ -28,6 +28,9 @@ module Unidom::Common::Concerns::SecureColumn
       send "#{name}=", json
     end
 
+    ##
+    # 对指定的安全列进行解密操作。如：
+    # do_encrypt_secure_column :secure_identity_card
     def do_decrypt_secure_column(name)
       name = name.to_sym
       return unless respond_to? name

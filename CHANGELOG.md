@@ -110,3 +110,6 @@
 ## v1.11
 1. Enable PostgreSQL Pgcrypto Extension migration (20000101000010)
 2. Improve the Common module to add the STATE constant as: ``'C'``
+
+## v2.0
+1. Improve the compatibility for Rails 6.0

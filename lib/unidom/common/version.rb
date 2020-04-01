@@ -1,5 +1,5 @@
 module Unidom
   module Common
-    VERSION = '1.11'.freeze
+    VERSION = '2.0'.freeze
   end
 end
