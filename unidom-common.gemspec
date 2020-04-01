@@ -23,6 +23,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'progne_tapera', '~> 0.4'
 
   spec.add_development_dependency 'bundler', '~> 2.0'
-  spec.add_development_dependency 'rake',    '~> 11.0'
+  spec.add_development_dependency 'rake',    '~> 13.0'
 
 end
